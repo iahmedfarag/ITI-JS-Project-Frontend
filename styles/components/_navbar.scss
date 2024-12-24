@@ -1,0 +1,90 @@
+nav {
+    // background-color: aliceblue;
+    // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    .container {
+        .logo {
+            img {
+                max-width: 200px;
+            }
+        }
+
+        .cart {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .icon {
+                position: relative;
+                font-size: 16px;
+                p {
+                    background-color: var(--main-color);
+                    color: white;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    padding: 2px;
+                    font-size: 13px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        // desktop
+        .desktop {
+            display: none;
+        }
+        // mobile
+        .mobile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+
+            .menuBtn {
+                width: 20px;
+                i {
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: 0.1s;
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                }
+            }
+            .logo {
+                img {
+                    width: 150px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            // desktop
+            .desktop {
+                display: flex;
+                padding: 20px 0;
+                gap: 30px;
+                align-items: center;
+                justify-content: space-between;
+                .links {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    > a {
+                        padding: 3px;
+                        transition: 0.1s;
+                    }
+                    > a:hover {
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            // mobile
+            .mobile {
+                display: none;
+            }
+        }
+    }
+}

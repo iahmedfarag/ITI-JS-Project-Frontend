@@ -1,0 +1,45 @@
+.subNavbar {
+    border: 1px solid #f3f3f3;
+    .container {
+        .bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .browseCategories {
+                background-color: var(--main-color);
+                width: 280px;
+                display: flex;
+                align-items: center;
+                color: white;
+                padding: 15px 10px;
+                justify-content: space-between;
+                > div {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+                p {
+                    font-size: 15px;
+                }
+                i {
+                    font-size: 15px;
+                    margin-bottom: 2px;
+                }
+            }
+            .links {
+                display: flex;
+                gap: 15px;
+                a {
+                    font-size: 18px;
+                    transition: 0.1s;
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                    &.active {
+                        color: var(--main-color);
+                    }
+                }
+            }
+        }
+    }
+}

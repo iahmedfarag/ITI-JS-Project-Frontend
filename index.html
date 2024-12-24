@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ITI-JS-Project</title>
+        <link rel="icon" href="./public/icon.png" type="image/png" />
+        <link rel="stylesheet" href="./styles/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    </head>
+    <body>
+        <div class="loader" id="loader"></div>
+
+        <!-- START - Navbar -->
+
+        <nav>
+            <div class="container">
+                <!-- desktop -->
+                <div class="desktop">
+                    <a href="/" class="logo">
+                        <img src="./public/logo.svg" alt="logo" />
+                    </a>
+                    <div class="search">
+                        <div class="input">
+                            <input type="text" placeholder="Search for products" id="searchInputDesktop" autocomplete="off" />
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="products" id="searchProductsResultDesktop">
+                            <div class="product">
+                                <div>
+                                    <img src="./public/prd.jpg" alt="product" />
+                                    <p class="title">Lorem, ipsum dolor.</p>
+                                </div>
+                                <p class="price">595$</p>
+                            </div>
+                            <div class="product">
+                                <div>
+                                    <img src="./public/prd.jpg" alt="product" />
+                                    <p class="title">Lorem, ipsum dolor.</p>
+                                </div>
+                                <p class="price">595$</p>
+                            </div>
+                            <div class="product">
+                                <div>
+                                    <img src="./public/prd.jpg" alt="product" />
+                                    <p class="title">Lorem, ipsum dolor.</p>
+                                </div>
+                                <p class="price">595$</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="links">
+                        <a href="/" class="login">LOGIN/REGISTER</a>
+                        <a href="/"><i class="fa-regular fa-heart"></i></a>
+                        <a href="/" class="cart">
+                            <div class="icon">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <p class="quantity">12</p>
+                            </div>
+                            <p>$0.00</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- mobile -->
+                <div class="mobile">
+                    <div class="menuBtn" id="menuBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <a href="/" class="logo">
+                        <img src="./public/logo.svg" alt="logo" />
+                    </a>
+                    <a href="/" class="cart">
+                        <div class="icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <p class="quantity">12</p>
+                        </div>
+                        <p>$0.00</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- END - Navbar -->
+
+        <!-- START - Menu in mobile view -->
+
+        <div class="menu" id="menu">
+            <div class="search">
+                <div class="input">
+                    <input type="text" placeholder="Search for products" autocomplete="off" id="searchInputMobile" />
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="products" id="searchProductsResultMobile"></div>
+            </div>
+            <div class="btns">
+                <button class="menuBtnMobile active" id="menuBtnMobile">Menu</button>
+                <button class="cateogriesBtnMobile" id="cateogriesBtnMobile">Categories</button>
+            </div>
+            <div class="pages">
+                <a href="/">Home</a>
+                <a href="/">Profile</a>
+                <a href="/">Shop</a>
+                <a href="/">Cart</a>
+                <a href="/">Wishlist</a>
+                <a href="/">LOGIN/REGISTER</a>
+            </div>
+            <div class="categories">
+                <a href="/">Tables</a>
+                <a href="/">Chairs</a>
+                <a href="/">Tables</a>
+                <a href="/">Chairs</a>
+                <a href="/">Tables</a>
+                <a href="/">Chairs</a>
+            </div>
+        </div>
+
+        <!-- END - Menu in mobile view -->
+        <!-- START - Sub Navbar -->
+        <div class="subNavbar">
+            <div class="container">
+                <div class="bar">
+                    <div class="browseCategories">
+                        <div>
+                            <i class="fa-solid fa-bars"></i>
+                            <p>BROWSE CATEGORIES</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="links">
+                        <a href="/" class="active">Home</a>
+                        <a href="/">Shop</a>
+                        <a href="/">Cart</a>
+                        <a href="/">Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END - Sub Navbar -->
+
+        <!-- START - Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="categoriesSlider">
+                    <a href="/">Tables</a>
+                    <a href="/">Chairs</a>
+                    <a href="/">Tables</a>
+                    <a href="/">Chairs</a>
+                    <a href="/">Tables</a>
+                    <a href="/">Chairs</a>
+                </div>
+                <div class="slider">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <div></div>
+                            <img src="./public/s1.jpg" alt="Image 1" />
+                        </div>
+                        <div class="slide">
+                            <div></div>
+                            <img src="./public/s2.jpg" alt="Image 2" />
+                        </div>
+                        <div class="slide">
+                            <div></div>
+                            <img src="./public/s3.jpg" alt="Image 3" />
+                        </div>
+                        <!-- Duplicate slides for infinite effect -->
+                        <div class="slide">
+                            <div></div>
+                            <img src="./public/s1.jpg" alt="Image 1" />
+                        </div>
+                        <div class="slide">
+                            <div></div>
+                            <img src="./public/s2.jpg" alt="Image 2" />
+                        </div>
+                        <div class="slide">
+                            <div></div>
+                            <img src="./public/s3.jpg" alt="Image 3" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END - Hero -->
+        <!-- Featured Categories -->
+        <!-- Featured Products -->
+        <!-- Slide -->
+        <!-- News Letters -->
+        <!-- Latest News -->
+        <!-- Footer -->
+        <script src="./js/variables.js"></script>
+        <script src="./js/fetchFunctions.js"></script>
+        <script src="main.js"></script>
+        <script src="./js/handleSearch.js"></script>
+        <script src="./js/handleSlider.js"></script>
+    </body>
+</html>
