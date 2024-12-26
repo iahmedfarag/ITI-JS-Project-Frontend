@@ -12,7 +12,9 @@ const getProducts = async () => {
 
         products = result;
 
-        console.log(result);
+        console.log("products ==>", products);
+        // displayFeatureProducts();
+        renderProducts();
 
         return result;
     } catch (error) {
@@ -33,7 +35,10 @@ const getCategories = async () => {
 
         const result = await response.json();
         categories = result;
-        console.log(result);
+        console.log("categories ==>", result);
+
+        categoriesSliderElement.innerHTML = `${categories?.map((cat) => `<a href="/categories/${cat.name.toLowerCase()}">${cat.name}</a>`).join("")}`;
+        categoriesMobileElement.innerHTML = `${categories?.map((cat) => `<a href="/categories/${cat.name.toLowerCase()}">${cat.name}</a>`).join("")}`;
 
         return result;
     } catch (error) {

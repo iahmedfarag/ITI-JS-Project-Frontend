@@ -96,7 +96,7 @@
                 <button class="menuBtnMobile active" id="menuBtnMobile">Menu</button>
                 <button class="cateogriesBtnMobile" id="cateogriesBtnMobile">Categories</button>
             </div>
-            <div class="pages">
+            <div class="pages" id="pagesMobile">
                 <a href="/">Home</a>
                 <a href="/">Profile</a>
                 <a href="/">Shop</a>
@@ -104,17 +104,11 @@
                 <a href="/">Wishlist</a>
                 <a href="/">LOGIN/REGISTER</a>
             </div>
-            <div class="categories">
-                <a href="/">Tables</a>
-                <a href="/">Chairs</a>
-                <a href="/">Tables</a>
-                <a href="/">Chairs</a>
-                <a href="/">Tables</a>
-                <a href="/">Chairs</a>
-            </div>
+            <div class="categories" id="categoriesMobile"></div>
         </div>
 
         <!-- END - Menu in mobile view -->
+
         <!-- START - Sub Navbar -->
         <div class="subNavbar">
             <div class="container">
@@ -125,7 +119,7 @@
                             <p>BROWSE CATEGORIES</p>
                         </div>
                         <div>
-                            <i class="fa-solid fa-chevron-down"></i>
+                            <!-- <i class="fa-solid fa-chevron-down"></i> -->
                         </div>
                     </div>
                     <div class="links">
@@ -142,39 +136,56 @@
         <!-- START - Hero -->
         <section class="hero">
             <div class="container">
-                <div class="categoriesSlider">
-                    <a href="/">Tables</a>
-                    <a href="/">Chairs</a>
-                    <a href="/">Tables</a>
-                    <a href="/">Chairs</a>
-                    <a href="/">Tables</a>
-                    <a href="/">Chairs</a>
-                </div>
+                <div class="categoriesSlider" id="categoriesSlider"></div>
                 <div class="slider">
                     <div class="slider-track">
                         <div class="slide">
-                            <div></div>
-                            <img src="./public/s1.jpg" alt="Image 1" />
+                            <div class="text-container">
+                                <h2>Comfortable Chair</h2>
+                                <p>Teal Cushion for style and comfort. Perfect for home and office use.</p>
+                                <button onclick="window.location.href='/products/teal-chair'" class="offer-btn">Exclusive Offer</button>
+                            </div>
+                            <img src="./public/cat (1).jpg" alt="Image 1" />
                         </div>
                         <div class="slide">
-                            <div></div>
-                            <img src="./public/s2.jpg" alt="Image 2" />
+                            <div class="text-container">
+                                <h2>Stylish Chair</h2>
+                                <p>Red Cushion for a bold look. Add elegance to your space.</p>
+                                <button onclick="window.location.href='/products/red-chair'" class="offer-btn">Exclusive Offer</button>
+                            </div>
+                            <img src="./public/cat (2).jpg" alt="Image 2" />
                         </div>
                         <div class="slide">
-                            <div></div>
-                            <img src="./public/s3.jpg" alt="Image 3" />
+                            <div class="text-container">
+                                <h2>Modern Chair</h2>
+                                <p>Orange Cushion for a vibrant style. A must-have for modern interiors.</p>
+                                <button onclick="window.location.href='/products/orange-chair'" class="offer-btn">Exclusive Offer</button>
+                            </div>
+                            <img src="./public/cat (3).jpg" alt="Image 3" />
                         </div>
                         <!-- Duplicate slides for infinite effect -->
                         <div class="slide">
-                            <div></div>
-                            <img src="./public/s1.jpg" alt="Image 1" />
+                            <div class="text-container">
+                                <h2>Comfortable Chair</h2>
+                                <p>Teal Cushion for style and comfort. Perfect for home and office use.</p>
+                                <button onclick="window.location.href='/products/teal-chair'" class="offer-btn">Exclusive Offer</button>
+                            </div>
+                            <img src="./public/cat (4).jpg" alt="Image 1" />
                         </div>
                         <div class="slide">
-                            <div></div>
-                            <img src="./public/s2.jpg" alt="Image 2" />
+                            <div class="text-container">
+                                <h2>Stylish Chair</h2>
+                                <p>Red Cushion for a bold look. Add elegance to your space.</p>
+                                <button onclick="window.location.href='/products/red-chair'" class="offer-btn">Exclusive Offer</button>
+                            </div>
+                            <img src="./public/cat (5).jpg" alt="Image 2" />
                         </div>
                         <div class="slide">
-                            <div></div>
+                            <div class="text-container">
+                                <h2>Modern Chair</h2>
+                                <p>Orange Cushion for a vibrant style. A must-have for modern interiors.</p>
+                                <button onclick="window.location.href='/products/orange-chair'" class="offer-btn">Exclusive Offer</button>
+                            </div>
                             <img src="./public/s3.jpg" alt="Image 3" />
                         </div>
                     </div>
@@ -182,16 +193,105 @@
             </div>
         </section>
         <!-- END - Hero -->
+
         <!-- Featured Categories -->
+        <section class="featuredCategories">
+            <div class="container">
+                <div class="featuredCategoriesHeader sectionHeader">
+                    <span>WOODMART COLLECTIONS</span>
+                    <h2>FEATURED CATEGORIES</h2>
+                    <p>WoodMart is a powerful eCommerce theme for WordPress.</p>
+                </div>
+                <div class="featuredCategoriesCategories">
+                    <div class="main">
+                        <div class="featuredCategory">
+                            <img src="./public/cat (1).jpg" alt="Furniture 1" />
+                            <div class="content">
+                                <p>FURNITURE</p>
+                                <span>12 Products</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="others">
+                        <div class="featuredCategory">
+                            <img src="./public/cat (2).jpg" alt="Furniture 2" />
+                            <div class="content">
+                                <p>FURNITURE</p>
+                                <span>12 Products</span>
+                            </div>
+                        </div>
+                        <div class="featuredCategory">
+                            <img src="./public/cat (3).jpg" alt="Furniture 3" />
+                            <div class="content">
+                                <p>FURNITURE</p>
+                                <span>12 Products</span>
+                            </div>
+                        </div>
+                        <div class="featuredCategory">
+                            <img src="./public/cat (4).jpg" alt="Furniture 4" />
+                            <div class="content">
+                                <p>FURNITURE</p>
+                                <span>12 Products</span>
+                            </div>
+                        </div>
+                        <div class="featuredCategory">
+                            <img src="./public/cat (5).jpg" alt="Furniture 5" />
+                            <div class="content">
+                                <p>FURNITURE</p>
+                                <span>12 Products</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Featured Products -->
-        <!-- Slide -->
+        <!-- <section class="featuredProducts">
+            <div class="container">
+                <div class="featuredCategoriesHeader sectionHeader">
+                    <span>WOODMART COLLECTIONS</span>
+                    <h2>FEATURED CATEGORIES</h2>
+                    <p>WoodMart is a powerful eCommerce theme for WordPress.</p>
+                </div>
+                <div class="products" id="featuredProducts"></div>
+            </div>
+        </section> -->
+
+        <section class="featuredProducts">
+            <div class="container">
+                <div class="sectionHeader">
+                    <span>WOODMART COLLECTIONS</span>
+                    <h2>FEATURED CATEGORIES</h2>
+                    <p>WoodMart is a powerful eCommerce theme for WordPress.</p>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <button class="slider-arrow prev" id="prevArrow" disabled><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button class="slider-arrow next" id="nextArrow">Next <i class="fa fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Products Container -->
+                <div class="products" id="featuredProducts"></div>
+            </div>
+        </section>
+
+        <!-- feature -->
+        <section class="feature" style="padding: 50px">
+            <h1>feature</h1>
+        </section>
         <!-- News Letters -->
-        <!-- Latest News -->
+        <section class="newsLetter" style="padding: 50px">
+            <h1>newsLetter</h1>
+        </section>
         <!-- Footer -->
         <script src="./js/variables.js"></script>
-        <script src="./js/fetchFunctions.js"></script>
-        <script src="main.js"></script>
         <script src="./js/handleSearch.js"></script>
         <script src="./js/handleSlider.js"></script>
+        <script src="./js/displayFeaturedProducts.js"></script>
+        <script src="./js/handleMenu.js"></script>
+        <script src="./js/fetchFunctions.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
