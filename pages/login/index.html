@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Team4/login</title>
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <link rel="stylesheet" href="../../styles/main.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- START - Navbar -->
+        <nav style="background-color: #f9f9f9">
+            <div class="container">
+                <!-- desktop -->
+                <div class="desktop">
+                    <a href="/" class="logo">
+                        <img src="../../public/logo.svg" alt="logo" />
+                    </a>
+                    <div class="links">
+                        <a href="" class="login">LOGIN/REGISTER</a>
+                    </div>
+                </div>
+                <!-- mobile -->
+                <div class="mobile">
+                    <div class="menuBtn" id="menuBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <a href="/" class="logo">
+                        <img src="../../public/logo.svg" alt="logo" />
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="sin">
+            <div class="container">
+                <div class="cotan-form">
+                    <div class="login2">
+                        <h3>LOGIN</h3>
+                        <form action="" id="loginForm">
+                            <label for=""> Email address <span style="color: red">*</span> </label>
+                            <input type="text" id="emil" />
+                            <p id="emailVal" style="display: none; color: red">Please enter a valid email address.</p>
+                            <label for="">Password <span style="color: red">*</span></label>
+                            <input type="password" id="password" />
+                            <p id="passwordVal" style="display: none; color: red"></p>
+                            <div class="r-me">
+                                <div class="c-box">
+                                    <input type="checkbox" id="rememberMe" />
+                                    <label for="">Remember me</label>
+                                </div>
+                            </div>
+                            <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <strong>privacy policy.</strong></p>
+                            <button>LOGIN</button>
+                        </form>
+                    </div>
+                    <div class="Register2">
+                        <h3>REGISTER</h3>
+                        <p>Registering for this site allows you to access your order status and history. Just fill in the fields below, and we’ll get a new account set up for you in no time. We will only ask you for information necessary to make the purchase process faster and easier.</p>
+                        <a href="../Register/index.html"><button>REGISTER</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="main.js"></script>
+    </body>
+</html>

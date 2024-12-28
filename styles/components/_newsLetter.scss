@@ -1,0 +1,88 @@
+.newsletter {
+    background-color: #fff; // White background
+    padding: 40px 20px; // Spacing around the section
+    text-align: center;
+    background-image: url("../../public/news.jpg");
+    background-position: left;
+    background-repeat: no-repeat no-repeat;
+    .container {
+        max-width: 800px;
+        margin: 0 auto; // Center the content
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            gap: 10px;
+
+            input[type="email"] {
+                flex: 1;
+                padding: 10px 15px;
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                outline: none;
+                transition: border-color 0.3s ease;
+
+                &:focus {
+                    border-color: #83b735;
+                }
+            }
+
+            .btn-submit {
+                padding: 10px 20px;
+                font-size: 1rem;
+                background-color: #83b735;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #6fa12e;
+                }
+            }
+        }
+
+        .privacy-policy {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 15px;
+
+            a {
+                color: #83b735;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    // Responsive styles for smaller screens
+    @media (max-width: 768px) {
+        .newsletter-form {
+            flex-direction: column;
+            gap: 15px;
+
+            input[type="email"],
+            .btn-submit {
+                width: 100%; // Full width for smaller screens
+            }
+        }
+    }
+}

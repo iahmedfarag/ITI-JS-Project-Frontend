@@ -18,6 +18,8 @@ const categoriesSliderElement = document.getElementById("categoriesSlider");
 
 const featuredProductsElement = document.getElementById("featuredProducts");
 
+const featuredCategoriesContainerElement = document.getElementById("featuredCategoriesContainer");
+
 let loading = true;
 let products = [];
 let categories = [];

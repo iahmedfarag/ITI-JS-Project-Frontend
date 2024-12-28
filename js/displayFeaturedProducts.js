@@ -231,3 +231,5 @@ const viewDetails = (id) => {
     console.log(`View details for product ${id}`);
 };
 window.addEventListener("resize", updateItemsPerPage);
+
+window.onload = updateItemsPerPage();

@@ -46,9 +46,6 @@
                     cursor: not-allowed;
                 }
 
-                &:hover:not(:disabled) {
-                }
-
                 i {
                     pointer-events: none; // Ensure the icon doesn't capture pointer events
                 }
@@ -74,7 +71,8 @@
                 flex-direction: column;
                 align-items: center;
                 position: relative;
-
+                width: 100%;
+                z-index: 10;
                 &:hover {
                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                     transform: translateY(-5px);
@@ -185,9 +183,6 @@
                             cursor: pointer;
                             font-size: 14px;
                             transition: background-color 0.3s ease;
-
-                            &:hover {
-                            }
                         }
 
                         i {

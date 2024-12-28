@@ -5,14 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ITI-JS-Project</title>
         <link rel="icon" href="./public/icon.png" type="image/png" />
-        <link rel="stylesheet" href="./styles/main.css" />
+        <!-- font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <!-- css -->
+        <link rel="stylesheet" href="./styles/main.css" />
     </head>
     <body>
         <div class="loader" id="loader"></div>
 
         <!-- START - Navbar -->
-
         <nav>
             <div class="container">
                 <!-- desktop -->
@@ -25,34 +26,12 @@
                             <input type="text" placeholder="Search for products" id="searchInputDesktop" autocomplete="off" />
                             <i class="fas fa-search"></i>
                         </div>
-                        <div class="products" id="searchProductsResultDesktop">
-                            <div class="product">
-                                <div>
-                                    <img src="./public/prd.jpg" alt="product" />
-                                    <p class="title">Lorem, ipsum dolor.</p>
-                                </div>
-                                <p class="price">595$</p>
-                            </div>
-                            <div class="product">
-                                <div>
-                                    <img src="./public/prd.jpg" alt="product" />
-                                    <p class="title">Lorem, ipsum dolor.</p>
-                                </div>
-                                <p class="price">595$</p>
-                            </div>
-                            <div class="product">
-                                <div>
-                                    <img src="./public/prd.jpg" alt="product" />
-                                    <p class="title">Lorem, ipsum dolor.</p>
-                                </div>
-                                <p class="price">595$</p>
-                            </div>
-                        </div>
+                        <div class="products" id="searchProductsResultDesktop"></div>
                     </div>
                     <div class="links">
-                        <a href="/" class="login">LOGIN/REGISTER</a>
-                        <a href="/"><i class="fa-regular fa-heart"></i></a>
-                        <a href="/" class="cart">
+                        <a href="./pages/login/index.html" class="login">LOGIN/REGISTER</a>
+                        <a href="./pages/wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
+                        <a href="./pages/cart/index.html" class="cart">
                             <div class="icon">
                                 <i class="fa-solid fa-bag-shopping"></i>
                                 <p class="quantity">12</p>
@@ -61,6 +40,7 @@
                         </a>
                     </div>
                 </div>
+
                 <!-- mobile -->
                 <div class="mobile">
                     <div class="menuBtn" id="menuBtn">
@@ -69,7 +49,7 @@
                     <a href="/" class="logo">
                         <img src="./public/logo.svg" alt="logo" />
                     </a>
-                    <a href="/" class="cart">
+                    <a href="./pages/cart/index.html" class="cart">
                         <div class="icon">
                             <i class="fa-solid fa-bag-shopping"></i>
                             <p class="quantity">12</p>
@@ -80,10 +60,7 @@
             </div>
         </nav>
 
-        <!-- END - Navbar -->
-
         <!-- START - Menu in mobile view -->
-
         <div class="menu" id="menu">
             <div class="search">
                 <div class="input">
@@ -107,8 +84,6 @@
             <div class="categories" id="categoriesMobile"></div>
         </div>
 
-        <!-- END - Menu in mobile view -->
-
         <!-- START - Sub Navbar -->
         <div class="subNavbar">
             <div class="container">
@@ -124,75 +99,27 @@
                     </div>
                     <div class="links">
                         <a href="/" class="active">Home</a>
-                        <a href="/">Shop</a>
-                        <a href="/">Cart</a>
-                        <a href="/">Wishlist</a>
+                        <a href="./pages/products/index.html">Shop</a>
+                        <a href="./pages/cart/index.html">Cart</a>
+                        <a href="./pages/wishlist/index.html">Wishlist</a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- END - Sub Navbar -->
 
         <!-- START - Hero -->
-        <section class="hero">
+        <section class="hero sliderSection">
             <div class="container">
                 <div class="categoriesSlider" id="categoriesSlider"></div>
-                <div class="slider">
-                    <div class="slider-track">
-                        <div class="slide">
-                            <div class="text-container">
-                                <h2>Comfortable Chair</h2>
-                                <p>Teal Cushion for style and comfort. Perfect for home and office use.</p>
-                                <button onclick="window.location.href='/products/teal-chair'" class="offer-btn">Exclusive Offer</button>
-                            </div>
-                            <img src="./public/cat (1).jpg" alt="Image 1" />
-                        </div>
-                        <div class="slide">
-                            <div class="text-container">
-                                <h2>Stylish Chair</h2>
-                                <p>Red Cushion for a bold look. Add elegance to your space.</p>
-                                <button onclick="window.location.href='/products/red-chair'" class="offer-btn">Exclusive Offer</button>
-                            </div>
-                            <img src="./public/cat (2).jpg" alt="Image 2" />
-                        </div>
-                        <div class="slide">
-                            <div class="text-container">
-                                <h2>Modern Chair</h2>
-                                <p>Orange Cushion for a vibrant style. A must-have for modern interiors.</p>
-                                <button onclick="window.location.href='/products/orange-chair'" class="offer-btn">Exclusive Offer</button>
-                            </div>
-                            <img src="./public/cat (3).jpg" alt="Image 3" />
-                        </div>
-                        <!-- Duplicate slides for infinite effect -->
-                        <div class="slide">
-                            <div class="text-container">
-                                <h2>Comfortable Chair</h2>
-                                <p>Teal Cushion for style and comfort. Perfect for home and office use.</p>
-                                <button onclick="window.location.href='/products/teal-chair'" class="offer-btn">Exclusive Offer</button>
-                            </div>
-                            <img src="./public/cat (4).jpg" alt="Image 1" />
-                        </div>
-                        <div class="slide">
-                            <div class="text-container">
-                                <h2>Stylish Chair</h2>
-                                <p>Red Cushion for a bold look. Add elegance to your space.</p>
-                                <button onclick="window.location.href='/products/red-chair'" class="offer-btn">Exclusive Offer</button>
-                            </div>
-                            <img src="./public/cat (5).jpg" alt="Image 2" />
-                        </div>
-                        <div class="slide">
-                            <div class="text-container">
-                                <h2>Modern Chair</h2>
-                                <p>Orange Cushion for a vibrant style. A must-have for modern interiors.</p>
-                                <button onclick="window.location.href='/products/orange-chair'" class="offer-btn">Exclusive Offer</button>
-                            </div>
-                            <img src="./public/s3.jpg" alt="Image 3" />
-                        </div>
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slider-track"></div>
                     </div>
+                    <button class="slider-arrow left-arrow" aria-label="Previous Slide">❮</button>
+                    <button class="slider-arrow right-arrow" aria-label="Next Slide">❯</button>
                 </div>
             </div>
         </section>
-        <!-- END - Hero -->
 
         <!-- Featured Categories -->
         <section class="featuredCategories">
@@ -202,8 +129,8 @@
                     <h2>FEATURED CATEGORIES</h2>
                     <p>WoodMart is a powerful eCommerce theme for WordPress.</p>
                 </div>
-                <div class="featuredCategoriesCategories">
-                    <div class="main">
+                <div class="featuredCategoriesCategories" id="featuredCategoriesContainer">
+                    <!-- <div class="main">
                         <div class="featuredCategory">
                             <img src="./public/cat (1).jpg" alt="Furniture 1" />
                             <div class="content">
@@ -216,53 +143,42 @@
                         <div class="featuredCategory">
                             <img src="./public/cat (2).jpg" alt="Furniture 2" />
                             <div class="content">
-                                <p>FURNITURE</p>
-                                <span>12 Products</span>
+                                <p>ACCESSORIES</p>
+                                <span>18 Products</span>
                             </div>
                         </div>
                         <div class="featuredCategory">
                             <img src="./public/cat (3).jpg" alt="Furniture 3" />
                             <div class="content">
-                                <p>FURNITURE</p>
-                                <span>12 Products</span>
+                                <p>CLOCKS</p>
+                                <span>5 Products</span>
                             </div>
                         </div>
                         <div class="featuredCategory">
                             <img src="./public/cat (4).jpg" alt="Furniture 4" />
                             <div class="content">
-                                <p>FURNITURE</p>
-                                <span>12 Products</span>
+                                <p>LIGHTING</p>
+                                <span>9 Products</span>
                             </div>
                         </div>
                         <div class="featuredCategory">
                             <img src="./public/cat (5).jpg" alt="Furniture 5" />
                             <div class="content">
-                                <p>FURNITURE</p>
-                                <span>12 Products</span>
+                                <p>TOYS</p>
+                                <span>8 Products</span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
 
         <!-- Featured Products -->
-        <!-- <section class="featuredProducts">
-            <div class="container">
-                <div class="featuredCategoriesHeader sectionHeader">
-                    <span>WOODMART COLLECTIONS</span>
-                    <h2>FEATURED CATEGORIES</h2>
-                    <p>WoodMart is a powerful eCommerce theme for WordPress.</p>
-                </div>
-                <div class="products" id="featuredProducts"></div>
-            </div>
-        </section> -->
-
         <section class="featuredProducts">
             <div class="container">
                 <div class="sectionHeader">
                     <span>WOODMART COLLECTIONS</span>
-                    <h2>FEATURED CATEGORIES</h2>
+                    <h2>FEATURED Products</h2>
                     <p>WoodMart is a powerful eCommerce theme for WordPress.</p>
                 </div>
 
@@ -277,21 +193,121 @@
             </div>
         </section>
 
-        <!-- feature -->
-        <section class="feature" style="padding: 50px">
-            <h1>feature</h1>
+        <!-- Slide -->
+        <section class="bestSellerSlider sliderSection">
+            <div class="container">
+                <div class="categoriesSlider" id="categoriesSlider"></div>
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slider-track"></div>
+                    </div>
+                    <button class="slider-arrow left-arrow" aria-label="Previous Slide">❮</button>
+                    <button class="slider-arrow right-arrow" aria-label="Next Slide">❯</button>
+                </div>
+            </div>
         </section>
+
         <!-- News Letters -->
-        <section class="newsLetter" style="padding: 50px">
-            <h1>newsLetter</h1>
+        <section class="newsletter">
+            <div class="container">
+                <h3>JOIN OUR NEWSLETTER NOW</h3>
+                <form class="newsletter-form" onsubmit="(e)=> e.preventDefault()">
+                    <input type="email" name="email" placeholder="Your email address" required />
+                    <button type="submit" class="btn-submit">SIGN UP</button>
+                </form>
+                <p class="privacy-policy">
+                    Will be used in accordance with our
+                    <a href="#">Privacy Policy</a>
+                </p>
+            </div>
         </section>
+
         <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <!-- Logo Section -->
+                <div class="footer-section logo-section">
+                    <div class="footer-logo">
+                        <img src="./public/logo.svg" alt="Woodmart Logo" />
+                    </div>
+                    <p>Condimentum adipiscing vel neque dis nam parturient orci at scelerisque neque dis nam parturient.</p>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 451 Wall Street, UK, London</li>
+                        <li><i class="fas fa-phone"></i> Phone: (064) 332-1233</li>
+                        <li><i class="fas fa-fax"></i> Fax: (099) 453-1357</li>
+                    </ul>
+                </div>
+
+                <!-- Our Stores Section -->
+                <div class="footer-section">
+                    <h4>OUR STORES</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> New York</li>
+                        <li><i class="fas fa-map-marker-alt"></i> London SF</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Edinburgh</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Los Angeles</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Chicago</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Las Vegas</li>
+                    </ul>
+                </div>
+
+                <!-- Useful Links Section -->
+                <div class="footer-section">
+                    <h4>USEFUL LINKS</h4>
+                    <ul>
+                        <li><i class="fas fa-angle-right"></i> Privacy Policy</li>
+                        <li><i class="fas fa-angle-right"></i> Returns</li>
+                        <li><i class="fas fa-angle-right"></i> Terms & Conditions</li>
+                        <li><i class="fas fa-angle-right"></i> Contact Us</li>
+                        <li><i class="fas fa-angle-right"></i> Latest News</li>
+                        <li><i class="fas fa-angle-right"></i> Our Sitemap</li>
+                    </ul>
+                </div>
+
+                <!-- Footer Menu Section -->
+                <div class="footer-section">
+                    <h4>FOOTER MENU</h4>
+                    <ul>
+                        <li><i class="fab fa-instagram"></i> Instagram profile</li>
+                        <li><i class="fas fa-tags"></i> New Collection</li>
+                        <li><i class="fas fa-female"></i> Woman Dress</li>
+                        <li><i class="fas fa-envelope"></i> Contact Us</li>
+                        <li><i class="fas fa-rss"></i> Latest News</li>
+                        <li>
+                            <a href="#"><i class="fas fa-shopping-cart"></i> Purchase Theme</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>WOODMART © 2024 CREATED BY <a href="#">XTEMOS STUDIO</a>. PREMIUM E-COMMERCE SOLUTIONS.</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+            </div>
+        </footer>
+
+        <!-- variables -->
         <script src="./js/variables.js"></script>
-        <script src="./js/handleSearch.js"></script>
-        <script src="./js/handleSlider.js"></script>
-        <script src="./js/displayFeaturedProducts.js"></script>
+        <!-- menu -->
         <script src="./js/handleMenu.js"></script>
+        <!-- slider -->
+        <script src="./js/handleSlider.js"></script>
+        <!-- hero -->
+        <script src="./js/hero.js"></script>
+        <!-- search -->
+        <script src="./js/handleSearch.js"></script>
+        <!-- best-seller-slider -->
+        <script src="./js/bestSellerSlider.js"></script>
+        <!-- featured-products -->
+        <script src="./js/displayFeaturedProducts.js"></script>
+        <!-- fetch functions -->
         <script src="./js/fetchFunctions.js"></script>
+        <!-- main file -->
         <script src="main.js"></script>
     </body>
 </html>

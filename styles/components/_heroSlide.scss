@@ -1,0 +1,46 @@
+// =========== HERO SLIDER (UNCHANGED) ===========
+.sliderSection.hero {
+    .container {
+        .slider-container {
+            .slider {
+                .slider-track {
+                    .slide {
+                        > div {
+                            @media (min-width: 992px) {
+                                margin-left: 280px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            .slider-container {
+                height: 420px;
+
+                .slider {
+                    .slider-track {
+                        .slide {
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 0;
+
+                            > div {
+                                @media (min-width: 768px) {
+                                    display: flex;
+                                    visibility: hidden;
+                                }
+                                @media (min-width: 992px) {
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

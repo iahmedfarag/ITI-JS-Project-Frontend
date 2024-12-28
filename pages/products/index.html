@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Team4/Shop</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <link rel="stylesheet" href="../../styles/main.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- START - Navbar -->
+        <nav>
+            <div class="container">
+                <!-- desktop -->
+                <div class="desktop">
+                    <a href="/" class="logo">
+                        <img src="../../public/logo.svg" alt="logo" />
+                    </a>
+                    <div class="search">
+                        <div class="input">
+                            <input type="text" placeholder="Search for products" id="searchInputDesktop" autocomplete="off" />
+                            <a href="../wishlist/index.html"><i class="fas fa-search"></i></a>
+                        </div>
+                        <div class="products" id="searchProductsResultDesktop"></div>
+                    </div>
+                    <div class="links">
+                        <a href="../login/index.html" class="login">LOGIN/REGISTER</a>
+                        <a href="../wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
+                        <a href="../cart/index.html" class="cart">
+                            <div class="icon">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <p class="quantity">12</p>
+                            </div>
+                            <p>$0.00</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- mobile -->
+                <div class="mobile">
+                    <div class="menuBtn" id="menuBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <a href="/" class="logo">
+                        <img src="../../public/logo.svg" alt="logo" />
+                    </a>
+                    <a href="../cart/index.html" class="cart">
+                        <div class="icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <p class="quantity">12</p>
+                        </div>
+                        <p>$0.00</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- START - Sub Navbar -->
+        <div class="subNavbar">
+            <div class="container">
+                <div class="bar" style="padding: 15px 0">
+                    <div class=""></div>
+                    <div class="links">
+                        <a href="/">Home</a>
+                        <a href="../products/index.html" class="active">Shop</a>
+                        <a href="../cart/index.html">Cart</a>
+                        <a href="../wishlist/index.html">Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="title">
+            <h1 class="titleText" style="text-align: center; padding-top: 50px; padding-bottom: 30px">Shop</h1>
+            <div class="icons" style="display: flex; justify-content: center; align-items: center">
+                <div class="logo">
+                    <img src="../../public/products/clock.svg" alt="clock" style="width: 40px; height: 40px" />
+                    <div class="desc">
+                        <p class="category">CLOCKS</p>
+                        <p class="total">12 Products</p>
+                    </div>
+                </div>
+                <div class="logo">
+                    <img src="../../public/products/light-bulb.svg" alt="LIGHTING" style="width: 40px; height: 40px" />
+                    <div class="desc">
+                        <p class="category">LIGHTING</p>
+                        <p class="total">12 Products</p>
+                    </div>
+                </div>
+                <div class="logo">
+                    <img src="../../public/products/chair.svg" alt="FURNITURE" style="width: 40px; height: 40px" />
+                    <div class="desc">
+                        <p class="category">FURNITURE</p>
+                        <p class="total">12 Products</p>
+                    </div>
+                </div>
+                <div class="logo">
+                    <img src="../../public/products/flower.svg" alt="ACCESSORIES" style="width: 40px; height: 40px" />
+                    <div class="desc">
+                        <p class="category">ACCESSORIES</p>
+                        <p class="total">12 Products</p>
+                    </div>
+                </div>
+                <div class="logo">
+                    <img src="../../public/products/knives.svg" alt="COOKING" style="width: 40px; height: 40px" />
+                    <div class="desc">
+                        <p class="category">COOKING</p>
+                        <p class="total">12 Products</p>
+                    </div>
+                </div>
+                <div class="logo">
+                    <img src="../../public/products/rocking-horse.svg" alt="TOYS" style="width: 40px; height: 40px" />
+                    <div class="desc">
+                        <p class="category">TOYS</p>
+                        <p class="total">12 Products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 50px">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="filter-container">
+                        <h4>FILTER BY PRICE</h4>
+                        <div class="slider-wrapper">
+                            <div class="slider-container">
+                                <input type="range" id="minPrice" min="0" max="10000" step="1" />
+                                <input type="range" id="maxPrice" min="0" max="10000" step="1" />
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-block: 15px">
+                            <p class="filterPrice">
+                                Price: <strong><span id="minValue"></span>$</strong> —<strong><span id="maxValue"></span>$</strong>
+                            </p>
+                            <button id="filterBtn">FILTER</button>
+                        </div>
+                    </div>
+                    <div style="height: 1px; width: 100%; background-color: #767676"></div>
+                    <div class="filter-container">
+                        <h4>FILTER BY CATEGORY</h4>
+                        <div id="filterCategory"></div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div style="display: flex; justify-content: space-between; align-items: center">
+                        <div style="display: flex; gap: 10px; font-weight: bolder">
+                            <p style="color: #767676">Home</p>
+                            /
+                            <p>Shop</p>
+                        </div>
+                        <div style="display: flex; gap: 5px; justify-content: center; align-items: center">
+                            <svg style="cursor: pointer" id="resizeButton2" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#B0B0B0">
+                                <path d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520ZM200-600h160v-160H200v160Zm400 0h160v-160H600v160Zm0 400h160v-160H600v160Zm-400 0h160v-160H200v160Zm400-400Zm0 240Zm-240 0Zm0-240Z" />
+                            </svg>
+                            <svg style="cursor: pointer" id="resizeButton3" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                                <path
+                                    d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133ZM200-413h133v-134H200v134Zm213 0h134v-134H413v134Zm214 0h133v-134H627v134ZM200-627h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133Z" />
+                            </svg>
+                            <svg style="cursor: pointer" id="resizeButton4" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#B0B0B0">
+                                <path
+                                    d="M80-170v-620h800v620H80Zm80-440h100v-100H160v100Zm180 0h100v-100H340v100Zm180 0h100v-100H520v100Zm180 0h100v-100H700v100Zm0 180h100v-100H700v100Zm-180 0h100v-100H520v100Zm-180 0h100v-100H340v100Zm-80-100H160v100h100v-100Zm440 280h100v-100H700v100Zm-180 0h100v-100H520v100Zm-180 0h100v-100H340v100Zm-180 0h100v-100H160v100Z" />
+                            </svg>
+                            <select name="cars" id="cars">
+                                <option value="Default Sorting">Default Sorting</option>
+                                <option value="Sort Alphabetically">Sort Alphabetically</option>
+                                <optgroup label="Sort by price">
+                                    <option value="Sort by price: low to high">low to high</option>
+                                    <option value="Sort by price: high to low">high to low</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row mt-4" id="myData"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="paginationContainer" id="pagination"></div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
