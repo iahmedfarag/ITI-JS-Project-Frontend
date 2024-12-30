@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+ .sin{
+
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.sin .cotan-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+   max-height: 100vh;
+}
+
+.sin h3{
+padding: 15px;
+font-size: 25px;
+}
+.register1{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+    margin: 2px;
+    width: 50%;
+    border-right:1px solid  #e5e5e5;
+}
+.register1 form{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8px;
+    margin: 7px
+}
+
+.register1 form label{
+    display: block;
+    margin-bottom: 5px;
+    color: #242424;
+    /* vertical-align: middle; */
+    font-weight: 400;
+}
+
+.register1 form input{
+    padding: 0 15px;
+    max-width: 100%;
+    width: 90%;
+    height: 42px;
+    border: rgb(229 229 229) solid 2px;
+    border-radius: 3px;
+    background-color: #00000000;
+    box-shadow: none;
+    vertical-align: middle;
+    font-size: 14px;
+}
+form p{
+color: #767676;
+margin: 10px 0;
+  
+}
+
+.register1 form button {
+width: 100%;
+color: white;
+background-color: #83b735;
+padding: 13px 16px;
+border: none;
+border-radius: 2px;
+font-weight: bold;
+/* color: #333; */
+}
+
+.Login1{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start !important;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+    /* height: 100%; */
+   margin-bottom: 80px;
+}
+.Login1 p{
+    color: #767676;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    padding: 15px;
+}
+.Login1 button{
+margin: 3px;
+border: none;
+padding: 10px 20px;
+font-weight: bold;
+color: #333;
+
+}
+.erro-m{
+    color: red;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 700px) {
+    .sin .cotan-form{
+        width: 90%;
+        flex-wrap: wrap;
+    }
+    .register1 {
+        width: 95%;
+    }
+    .Login1 {
+        width: 95%;
+        margin-bottom: 10px;
+        height: 0px;
+
+    }
+    p{
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (max-width: 300px) {
+    .sin .cotan-form{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .register1 {
+        width: 95%;
+    }
+
+    .Login1 {
+        width: 95%;
+
+    }
+    p{
+        font-size: 14px;
+    }
+
+
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 910px) {
+.sin .cotan-form{
+    width: 95%;
+}
+}
+
+/* @media only screen and (min-width: 992px) {...} */

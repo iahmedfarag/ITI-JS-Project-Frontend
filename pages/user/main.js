@@ -1,113 +1,95 @@
-var API_URL = "https://iti-js-project-backend.vercel.app/api/order";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkYjVhNjU0YmExMzM5OTRiN2I1ZTUiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNTMyODUwNCwiZXhwIjoxNzM1OTMzMzA0fQ.v69lBtkvrcgbhKlfrIeLWQnuM_P5LCw5vzAWveZ5fEk"; // Replace with your actual token
-var orders;
+import { toggleAuthLinks, toggleLoader, updateCartQuantity } from "../../js/generalFunctions.js";
 
+let orders = [];
+
+// Fetch orders from the API
 async function fetchOrders() {
+    const authToken = localStorage.getItem("authToken");
+
+    if (!authToken) {
+        alert("You need to log in to view your orders.");
+        window.location.href = "/";
+        return;
+    }
+
     try {
-        const response = await fetch(API_URL, {
+        const response = await fetch("https://iti-js-project-backend.vercel.app/api/order", {
             method: "GET",
             headers: {
-                "Authorization": `Bearer ${token}`,
+                Authorization: `Bearer ${authToken}`,
                 "Content-Type": "application/json",
             },
         });
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch orders: ${response.status}`);
+            throw new Error(`Failed to fetch orders: ${response.statusText}`);
         }
 
         orders = await response.json();
     } catch (error) {
-        console.error(error);
+        console.error("Error fetching orders:", error);
+        alert("Failed to fetch orders. Please try again later.");
     }
 }
+
+// Render orders into the table
 function loadOrders() {
-    const orderTbody = document.getElementById('order-tbody');
-    orderTbody.innerHTML = '';
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        window.location.href = "/";
+        return;
+    }
 
-    orders.orders.forEach(order => {
-        const row = document.createElement('tr');
+    const orderTbody = document.getElementById("order-tbody");
+    orderTbody.innerHTML = ""; // Clear existing rows
 
-        const orderIdCell = document.createElement('td');
-        orderIdCell.textContent = order._id;
-        row.appendChild(orderIdCell);
+    if (!orders || orders.orders.length === 0) {
+        orderTbody.innerHTML = `<tr><td colspan="6" class="empty-state">No orders found. Start shopping now!</td></tr>`;
+        return;
+    }
 
-        const priceCell = document.createElement('td');
-        priceCell.textContent = `$${order.price.toFixed(2)}`;
-        row.appendChild(priceCell);
+    orders.orders.forEach((order) => {
+        // Main row for the order
+        const row = document.createElement("tr");
 
-        const discountCell = document.createElement('td');
-        discountCell.textContent = `${(order.price - order.priceAfterDiscount).toFixed(2)}%`;
-        row.appendChild(discountCell);
-
-        const priceAfterDiscountCell = document.createElement('td');
-        priceAfterDiscountCell.textContent = `$${order.priceAfterDiscount.toFixed(2)}`;
-        row.appendChild(priceAfterDiscountCell);
-
-        const statusCell = document.createElement('td');
-        const statusElement = document.createElement('span');
-        statusElement.textContent = order.status;
-
-        if (order.status === 'pending') {
-            statusElement.classList.add('status-circle', 'pending');
-        } else if (order.status === 'approved') {
-            statusElement.classList.add('status-circle', 'approved');
-        } else if (order.status === 'rejected') {
-            statusElement.classList.add('status-circle', 'rejected');
-        }
-
-        statusCell.appendChild(statusElement);
-        row.appendChild(statusCell);
-
-        const detailsCell = document.createElement('td');
-        const detailsButton = document.createElement('button');
-        detailsButton.textContent = 'Details';
-        detailsButton.classList.add('accordion');
-        detailsButton.addEventListener('click', () => toggleAccordion(order._id, detailsButton, row));
-        detailsCell.appendChild(detailsButton);
-        row.appendChild(detailsCell);
+        row.innerHTML = `
+            <td>${order._id}</td>
+            <td>$${order.price.toFixed(2)}</td>
+            <td>${(order.price - order.priceAfterDiscount).toFixed(2)}%</td>
+            <td>$${order.priceAfterDiscount.toFixed(2)}</td>
+            <td>
+                <span class="status-circle ${order.status}">${order.status}</span>
+            </td>
+            <td>
+                <button class="accordion">Details</button>
+            </td>
+        `;
 
         orderTbody.appendChild(row);
 
-        const accordionContent = document.createElement('tr');
-        accordionContent.className = 'details-accordion';
+        // Accordion content
+        const accordionContent = document.createElement("tr");
+        accordionContent.className = "details-accordion";
         accordionContent.id = `${order._id}-details`;
-        accordionContent.style.display = 'none';
+        accordionContent.style.display = "none";
 
-        const accordionTd = document.createElement('td');
+        const accordionTd = document.createElement("td");
         accordionTd.colSpan = 6;
 
-        const contentTable = document.createElement('table');
-        contentTable.className = 'tiny-table';
+        const contentTable = document.createElement("table");
+        contentTable.className = "tiny-table";
 
-        order.items.forEach(item => {
+        order.items.forEach((item) => {
             const product = item.product;
-            const productRow = document.createElement('tr');
+            const productRow = document.createElement("tr");
 
-            const imageCell = document.createElement('td');
-            const img = document.createElement('img');
-            img.src = product.mainImage || '/furniture10-88x100.jpg';
-            img.alt = product.name;
-            img.style.width = '70px';
-            img.style.height = '70px';
-            imageCell.appendChild(img);
-            productRow.appendChild(imageCell);
-
-            const nameCell = document.createElement('td');
-            nameCell.textContent = product.name;
-            productRow.appendChild(nameCell);
-
-            const quantityCell = document.createElement('td');
-            quantityCell.textContent = `Quantity: ${item.quantity}`;
-            productRow.appendChild(quantityCell);
-
-            const priceCell = document.createElement('td');
-            priceCell.textContent = `$${(product.price * item.quantity).toFixed(2)}`;
-            productRow.appendChild(priceCell);
-
-            const paymentCell = document.createElement('td');
-            paymentCell.textContent = order.paymentMethod;
-            productRow.appendChild(paymentCell);
+            productRow.innerHTML = `
+                <td><img src="${product.mainImage || "/furniture10-88x100.jpg"}" alt="${product.name}" style="width: 70px; height: 70px;"></td>
+                <td>${product.name}</td>
+                <td>Quantity: ${item.quantity}</td>
+                <td>$${(product.price * item.quantity).toFixed(2)}</td>
+                <td>${order.paymentMethod}</td>
+            `;
 
             contentTable.appendChild(productRow);
         });
@@ -115,35 +97,37 @@ function loadOrders() {
         accordionTd.appendChild(contentTable);
         accordionContent.appendChild(accordionTd);
         orderTbody.appendChild(accordionContent);
+
+        // Add accordion toggle functionality
+        const detailsButton = row.querySelector(".accordion");
+        detailsButton.addEventListener("click", () => toggleAccordion(order._id, detailsButton));
     });
 }
 
-
-function toggleAccordion(orderId, button, row) {
+// Toggle accordion visibility
+function toggleAccordion(orderId, button) {
     const accordionContent = document.getElementById(`${orderId}-details`);
 
-    if (accordionContent.style.display === 'table-row') {
-        accordionContent.style.display = 'none';
-        button.classList.remove('accordion-active');
+    if (accordionContent.style.display === "table-row") {
+        accordionContent.style.display = "none";
+        button.classList.remove("accordion-active");
     } else {
-        const allAccordions = document.querySelectorAll('.details-accordion');
-        allAccordions.forEach(acc => acc.style.display = 'none');
+        document.querySelectorAll(".details-accordion").forEach((accordion) => {
+            accordion.style.display = "none";
+        });
 
-        accordionContent.style.display = 'table-row';
-        button.classList.add('accordion-active');
+        accordionContent.style.display = "table-row";
+        button.classList.add("accordion-active");
     }
 }
-document.querySelectorAll('.accordion-btn').forEach(button => {
-    button.addEventListener('click', function () {
-        const row = this.closest('tr');
-        const details = row.nextElementSibling;
 
-        details.classList.toggle('details-accordion');
-        this.classList.toggle('accordion-active');
-    });
-});
-
-document.addEventListener('DOMContentLoaded', async () => {
+// Initialize orders on page load
+document.addEventListener("DOMContentLoaded", async () => {
+    toggleLoader(true);
+    toggleAuthLinks();
+    updateCartQuantity();
     await fetchOrders();
     loadOrders();
+
+    toggleLoader(false);
 });

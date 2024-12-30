@@ -1,3 +1,5 @@
+import { products } from "./variables.js";
+
 const handleSearch = (value) => {
     let result = [];
     products.map((product) => {
@@ -8,7 +10,7 @@ const handleSearch = (value) => {
     return result;
 };
 
-const handleDisplaySearchResult = (value, resultElement) => {
+export const handleDisplaySearchResult = (value, resultElement) => {
     if (value === "") {
         resultElement.style.display = "none";
         resultElement.innerHTML = "";
@@ -35,7 +37,7 @@ const handleDisplaySearchResult = (value, resultElement) => {
     resultElement.innerHTML = searchProductsResultHTML;
 };
 
-const handleSearchBlur = (el) => {
+export const handleSearchBlur = (el) => {
     el.style.display = "none";
     el.innerHTML = "";
 };

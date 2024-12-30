@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Checkout</title>
+</head>
+<body>
+    <section class="sin" >
+        <header>
+            <h3>Checkout</h3>
+        </header>
+    
+        <main>
+            <section class="checkout-form">
+                <form id="checkout-form" action="#!" onsubmit="submitForm(event)">
+                    <h6>Contact information :</h6>
+                    <div class="form-control">
+                        <label for="checkout-email">E-mail <span style="color: red;">*</span></label>
+                        <div>
+                            <span class="fa fa-envelope"></span>
+                            <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email...">
+                            <p class="erro-m" id="email-e"></p>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="checkout-phone">Phone<span style="color: red;">*</span></label>
+                        <div>
+                            <span class="fa fa-phone"></span>
+                            <input type="tel" name="checkout-phone" id="checkout-phone" placeholder="Enter you phone...">
+                            <p class="erro-m" id="phone-e"></p>
+
+                        </div>
+                    </div>
+                    <br>
+                    <h6>Shipping address:</h6>
+                    <div class="form-control">
+                        <label for="checkout-name">Full name <span style="color: red;">*</span></label>
+                        <div>
+                            <span class="fa fa-user-circle"></span>
+                            <input type="text" id="checkout-name" name="checkout-name" placeholder="Enter you name...">
+                            <p class="erro-m" id="name-e"></p>
+
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="checkout-address">Address <span style="color: red;">*</span></label>
+                        <div>
+                            <span class="fa fa-home"></span>
+                            <input type="text" name="checkout-address" id="checkout-address" placeholder="Your address...">
+                            <p class="erro-m" id="address-e"></p>
+
+                        </div>
+                    </div>
+                 
+    
+                    <div class="form-control checkbox-control">
+                        <input type="checkbox" name="checkout-checkbox" id="checkout-checkbox">
+                        <label for="checkout-checkbox">Save this information for next time</label>
+                    </div>
+
+                    <div class="form-control-btn">
+                        <button>Continue</button>
+                    </div>
+                </form>
+            </section>
+    
+            <section class="checkout-details">
+                <div class="checkout-details-inner">
+                    <div class="checkout-lists" id="p-chexk">
+                        <!-- <div class="card">
+                            <div class="card-image"><img src="https://rvs-checkout-page.onrender.com/photo2.png" alt=""></div>
+                            <div class="card-details">
+                                <div class="card-name">Levi Shoes</div>
+                                <div class="card-price">$74.99 <span>$124.99</span></div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="checkout-shipping">
+                        <h6>Shipping</h6>
+                        <p>$15</p>
+                    </div>
+                    <div class="checkout-total">
+                        <h6>Tax (5%)</h6>
+                        <p>$148.98</p>
+                    </div>
+                    <div class="checkout-total">
+                        <h6>Total</h6>
+                        <p>$148.98</p>
+                    </div>
+                </div>
+            </section>
+    
+        </main>
+   
+
+
+    <script src="main.js"></script>
+</body>
+</html>

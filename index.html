@@ -29,15 +29,16 @@
                         <div class="products" id="searchProductsResultDesktop"></div>
                     </div>
                     <div class="links">
-                        <a href="./pages/login/index.html" class="login">LOGIN/REGISTER</a>
+                        <a href="./pages/login/index.html" class="login" id="login">LOGIN/REGISTER</a>
                         <a href="./pages/wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
                         <a href="./pages/cart/index.html" class="cart">
                             <div class="icon">
                                 <i class="fa-solid fa-bag-shopping"></i>
-                                <p class="quantity">12</p>
+                                <p class="quantity"></p>
                             </div>
-                            <p>$0.00</p>
                         </a>
+                        <a href="./pages/user/index.html" id="userProfile"><i class="fa-solid fa-user"></i></a>
+                        <button id="logout">Logout</button>
                     </div>
                 </div>
 
@@ -49,13 +50,15 @@
                     <a href="/" class="logo">
                         <img src="./public/logo.svg" alt="logo" />
                     </a>
-                    <a href="./pages/cart/index.html" class="cart">
-                        <div class="icon">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <p class="quantity">12</p>
-                        </div>
-                        <p>$0.00</p>
-                    </a>
+                    <div style="display: flex; gap: 15px">
+                        <a href="./pages/wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
+                        <a href="./pages/cart/index.html" class="cart">
+                            <div class="icon">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <p class="quantity"></p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -75,11 +78,11 @@
             </div>
             <div class="pages" id="pagesMobile">
                 <a href="/">Home</a>
-                <a href="/">Profile</a>
-                <a href="/">Shop</a>
-                <a href="/">Cart</a>
-                <a href="/">Wishlist</a>
-                <a href="/">LOGIN/REGISTER</a>
+                <a href="./pages/user/index.html">Profile</a>
+                <a href="./pages/products/index.html">Shop</a>
+                <a href="./pages/cart/index.html">Cart</a>
+                <a href="./pages/wishlist/index.html">Wishlist</a>
+                <a href="./pages/login/index.html">LOGIN/REGISTER</a>
             </div>
             <div class="categories" id="categoriesMobile"></div>
         </div>
@@ -100,8 +103,8 @@
                     <div class="links">
                         <a href="/" class="active">Home</a>
                         <a href="./pages/products/index.html">Shop</a>
-                        <a href="./pages/cart/index.html">Cart</a>
-                        <a href="./pages/wishlist/index.html">Wishlist</a>
+                        <!-- <a href="./pages/cart/index.html">Cart</a> -->
+                        <!-- <a href="./pages/wishlist/index.html">Wishlist</a> -->
                     </div>
                 </div>
             </div>
@@ -129,47 +132,7 @@
                     <h2>FEATURED CATEGORIES</h2>
                     <p>WoodMart is a powerful eCommerce theme for WordPress.</p>
                 </div>
-                <div class="featuredCategoriesCategories" id="featuredCategoriesContainer">
-                    <!-- <div class="main">
-                        <div class="featuredCategory">
-                            <img src="./public/cat (1).jpg" alt="Furniture 1" />
-                            <div class="content">
-                                <p>FURNITURE</p>
-                                <span>12 Products</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="others">
-                        <div class="featuredCategory">
-                            <img src="./public/cat (2).jpg" alt="Furniture 2" />
-                            <div class="content">
-                                <p>ACCESSORIES</p>
-                                <span>18 Products</span>
-                            </div>
-                        </div>
-                        <div class="featuredCategory">
-                            <img src="./public/cat (3).jpg" alt="Furniture 3" />
-                            <div class="content">
-                                <p>CLOCKS</p>
-                                <span>5 Products</span>
-                            </div>
-                        </div>
-                        <div class="featuredCategory">
-                            <img src="./public/cat (4).jpg" alt="Furniture 4" />
-                            <div class="content">
-                                <p>LIGHTING</p>
-                                <span>9 Products</span>
-                            </div>
-                        </div>
-                        <div class="featuredCategory">
-                            <img src="./public/cat (5).jpg" alt="Furniture 5" />
-                            <div class="content">
-                                <p>TOYS</p>
-                                <span>8 Products</span>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+                <div class="featuredCategoriesCategories" id="featuredCategoriesContainer"></div>
             </div>
         </section>
 
@@ -292,22 +255,24 @@
         </footer>
 
         <!-- variables -->
-        <script src="./js/variables.js"></script>
+        <script src="./js/variables.js" type="module"></script>
+        <!-- G Functions -->
+        <script src="./js/generalFunctions.js" type="module"></script>
         <!-- menu -->
-        <script src="./js/handleMenu.js"></script>
+        <script src="./js/handleMenu.js" type="module"></script>
         <!-- slider -->
-        <script src="./js/handleSlider.js"></script>
+        <script src="./js/handleSlider.js" type="module"></script>
         <!-- hero -->
-        <script src="./js/hero.js"></script>
+        <script src="./js/hero.js" type="module"></script>
         <!-- search -->
-        <script src="./js/handleSearch.js"></script>
+        <script src="./js/handleSearch.js" type="module"></script>
         <!-- best-seller-slider -->
-        <script src="./js/bestSellerSlider.js"></script>
+        <script src="./js/bestSellerSlider.js" type="module"></script>
         <!-- featured-products -->
-        <script src="./js/displayFeaturedProducts.js"></script>
+        <script src="./js/displayFeaturedProducts.js" type="module"></script>
         <!-- fetch functions -->
-        <script src="./js/fetchFunctions.js"></script>
+        <script src="./js/fetchFunctions.js" type="module"></script>
         <!-- main file -->
-        <script src="main.js"></script>
+        <script src="main.js" type="module"></script>
     </body>
 </html>

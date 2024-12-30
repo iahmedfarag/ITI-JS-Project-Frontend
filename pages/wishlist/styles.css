@@ -1,173 +1,165 @@
-h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #222;
-    margin-bottom: 20px;
-    animation: slideInDown 0.5s ease-out;
-}
-
+/* Wishlist Container */
 .wishlist-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 50px;
-    animation: fadeInUp 0.5s ease-in-out;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.wishlist-table thead th {
-    background-color: #f1f1f1;
-    color: #666;
-    padding: 15px;
-    text-align: left;
-    border-bottom: 2px solid #ddd;
-}
-
-.wishlist-table tbody td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-    vertical-align: middle;
-    animation: fadeIn 0.4s ease-in;
-}
-
-.wishlist-table img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.wishlist-table img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-primary {
-    background: linear-gradient(to right, #70c745, #4caf50);
-    color: white;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 15px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.4s ease, box-shadow 0.3s ease;
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(to right, #4caf50, #70c745);
-    box-shadow: 0 4px 12px rgba(112, 199, 69, 0.5);
-}
-
-.remove-btn {
-    font-size: 20px;
-    color: #ff4d4f;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.remove-btn:hover {
-    color: #d32f2f;
-    transform: scale(1.2);
-}
-
-.floating-action-bar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Column Labels */
+.column-labels {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    animation: slideUp 0.6s ease-in-out;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.column-labels label {
+    font-size: 14px;
+    color: #333;
 }
-
-@keyframes fadeInUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInDown {
-    from {
-        transform: translateY(-30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    .wishlist-table thead {
+@media screen and (max-width: 768px) {
+    .column-labels {
         display: none;
     }
+}
 
-    .wishlist-table tbody tr {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #eee;
-        padding-bottom: 15px;
+/* Product Items */
+.product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.product:last-child {
+    border-bottom: none;
+}
+
+/* Product Image */
+.product-image {
+    width: 15%;
+    text-align: center;
+}
+.product-image img {
+    max-width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Details */
+.product-details {
+    width: 45%;
+    font-size: 14px;
+}
+.product-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Product Pricing */
+.product-price {
+    width: 12%;
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Remove Button */
+.product-removal {
+    width: 12%;
+    text-align: center;
+}
+.remove-product {
+    border: none;
+    padding: 8px 15px;
+    background-color: #e63946;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.remove-product:hover {
+    background-color: #d62828;
+}
+
+/* Empty Wishlist Style */
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.empty-cart p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.empty-cart .btn {
+    background: #5cb85c;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.empty-cart .btn:hover {
+    background: #4cae4c;
+    transform: translateY(-2px);
+}
+
+.empty-cart .btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .product {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
     }
-
-    .wishlist-table tbody td {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 0;
+    .product-image,
+    .product-details,
+    .product-price,
+    .product-removal {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .empty-cart p {
+        font-size: 1rem;
+    }
+    .empty-cart .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
 }
 
-@media (max-width: 480px) {
-    .wishlist-container {
-        padding: 15px;
+@media screen and (max-width: 480px) {
+    .product-image img {
+        max-width: 60px;
+        height: 60px;
     }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .btn-primary {
-        padding: 10px 20px;
-        font-size: 16px;
+    .product-title {
+        font-size: 14px;
     }
 }

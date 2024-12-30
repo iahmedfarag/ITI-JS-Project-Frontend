@@ -1,3 +1,5 @@
+import { categoriesMobileElement, cateogriesBtnMobile, menuBtnElement, menuBtnMobile, menuElement, pagesMobileElement } from "./variables.js";
+
 // START - Menu
 const toggleMenu = () => {
     menuElement.classList.toggle("menu-open");

@@ -9,8 +9,10 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
+        <div class="loader" id="loader"></div>
+
         <!-- START - Navbar -->
-        <nav style="background-color: #f9f9f9">
+        <nav>
             <div class="container">
                 <!-- desktop -->
                 <div class="desktop">
@@ -20,20 +22,21 @@
                     <div class="search">
                         <div class="input">
                             <input type="text" placeholder="Search for products" id="searchInputDesktop" autocomplete="off" />
-                            <a href=""><i class="fas fa-search"></i></a>
+                            <a><i class="fas fa-search"></i></a>
                         </div>
                         <div class="products" id="searchProductsResultDesktop"></div>
                     </div>
                     <div class="links">
-                        <!-- <a href="./pages/login/index.html" class="login">LOGIN/REGISTER</a> display his name -->
-                        <a href="/"><i class="fa-regular fa-heart"></i></a>
+                        <a href="./pages/login/index.html" class="login" id="login">LOGIN/REGISTER</a>
+                        <a href="" class="wishListBtn"><i class="fa-regular fa-heart"></i></a>
                         <a href="../cart/index.html" class="cart">
                             <div class="icon">
                                 <i class="fa-solid fa-bag-shopping"></i>
-                                <p class="quantity">12</p>
+                                <p class="quantity"></p>
                             </div>
-                            <p>$0.00</p>
                         </a>
+                        <a href="../user/index.html" id="userProfile"><i class="fa-solid fa-user"></i></a>
+                        <button id="logout">Logout</button>
                     </div>
                 </div>
 
@@ -45,16 +48,16 @@
                     <a href="/" class="logo">
                         <img src="../../public/logo.svg" alt="logo" />
                     </a>
-                    <a href="../cart/index.html" class="cart">
+                    <a href="" class="cart">
                         <div class="icon">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <p class="quantity">12</p>
+                            <p class="quantity"></p>
                         </div>
-                        <p>$0.00</p>
                     </a>
                 </div>
             </div>
         </nav>
+
         <!-- START - Sub Navbar -->
         <div class="subNavbar">
             <div class="container">
@@ -63,28 +66,25 @@
                     <div class="links">
                         <a href="/">Home</a>
                         <a href="../products/index.html">Shop</a>
-                        <a href="../cart/index.html">Cart</a>
-                        <a href="../wishlist/index.html" class="active">Wishlist</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Wishlist Container -->
         <div class="container">
-            <div class="wishlist-header">
-                <h1>Wishlist</h1>
+            <div class="wishlist-table">
+                <div class="column-labels">
+                    <label class="product-image">Image</label>
+                    <label class="product-details">Product</label>
+                    <label class="product-price pri">Price</label>
+                    <label class="product-removal">Remove</label>
+                </div>
+                <div id="wishlist-items"></div>
             </div>
-            <table class="wishlist-table">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="wishlist"></tbody>
-            </table>
         </div>
-        <script src="script.js"></script>
+
+        <script src="../../js/variables.js" type="module"></script>
+        <script src="script.js" type="module"></script>
     </body>
 </html>

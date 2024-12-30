@@ -4,164 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Checkout</title>
-        <link rel="stylesheet" href="../../styles/main.css" />
-        <!-- font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: Arial, sans-serif;
-            }
-
-            .conta {
-                /* max-width: 1200px; */
-                /* margin: 50px auto; */
-                display: flex;
-                /* gap: 20px; */
-                margin-top: 30px;
-            }
-
-            .checkout-form,
-            .cart-summary {
-                background: #fff;
-                border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                padding: 20px;
-            }
-
-            .checkout-form {
-                flex: 2;
-            }
-
-            .cart-summary {
-                flex: 1;
-            }
-
-            h1 {
-                font-size: 24px;
-                margin-bottom: 20px;
-                color: #333;
-            }
-
-            h4 {
-                margin-bottom: 20px;
-            }
-
-            label {
-                display: block;
-                font-weight: bold;
-                font-size: small;
-                margin-bottom: 5px;
-                color: #555;
-            }
-
-            input,
-            select {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 15px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-
-            .radio-group {
-                display: flex;
-                gap: 10px;
-                margin-bottom: 20px;
-
-                margin-top: 10px;
-            }
-
-            .radio-group label {
-                font-size: small;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-
-                padding: 10px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-            }
-
-            .radio-group input {
-                margin: 0;
-            }
-
-            .cart-summary h2 {
-                font-size: 20px;
-                margin-bottom: 15px;
-                color: #333;
-            }
-
-            .cart-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 10px;
-                border-bottom: 1px solid rgb(196, 196, 196);
-            }
-
-            .cart-item img {
-                width: 60px;
-                height: 60px;
-                object-fit: cover;
-                border-radius: 5px;
-            }
-
-            .cart-item span {
-                font-size: 14px;
-                color: #555;
-            }
-
-            .cart-summary .totals {
-                margin-top: 190px;
-                border-top: 1px solid rgb(196, 196, 196);
-
-                font-size: 14px;
-                justify-content: flex-end;
-            }
-
-            .cart-summary .totals div {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 5px;
-                margin-top: 10px;
-            }
-
-            .pay-now {
-                display: block;
-                text-align: center;
-                background-color: #4a63e7;
-                color: #fff;
-                padding: 10px;
-                border-radius: 5px;
-                text-decoration: none;
-                font-weight: bold;
-                margin-top: 20px;
-            }
-
-            .pay-now:hover {
-                background-color: #3a51c5;
-            }
-
-            .secure-checkout {
-                margin-top: 20px;
-                font-size: 12px;
-                text-align: center;
-                color: #666;
-            }
-
-            .secure-checkout img {
-                vertical-align: middle;
-                margin-right: 5px;
-            }
-        </style>
+        <link rel="stylesheet" href="../../styles/main.css" />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <!-- START - Navbar -->
-        <nav style="background-color: #f9f9f9">
+        <nav>
             <div class="container">
                 <!-- desktop -->
                 <div class="desktop">
@@ -176,15 +25,17 @@
                         <div class="products" id="searchProductsResultDesktop"></div>
                     </div>
                     <div class="links">
-                        <!-- <a href="./pages/login/index.html" class="login">LOGIN/REGISTER</a> display his name -->
-                        <a href="/"><i class="fa-regular fa-heart"></i></a>
+                        <a href="./pages/login/index.html" class="login" id="login">LOGIN/REGISTER</a>
+
+                        <a href="../wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
                         <a href="../cart/index.html" class="cart">
                             <div class="icon">
                                 <i class="fa-solid fa-bag-shopping"></i>
-                                <p class="quantity">12</p>
+                                <p class="quantity"></p>
                             </div>
-                            <p>$0.00</p>
                         </a>
+                        <a href="../user/index.html" id="userProfile"><i class="fa-solid fa-user"></i></a>
+                        <button id="logout">Logout</button>
                     </div>
                 </div>
 
@@ -196,12 +47,11 @@
                     <a href="/" class="logo">
                         <img src="../../public/logo.svg" alt="logo" />
                     </a>
-                    <a href="../cart/index.html" class="cart">
+                    <a href="" class="cart">
                         <div class="icon">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <p class="quantity">12</p>
+                            <p class="quantity"></p>
                         </div>
-                        <p>$0.00</p>
                     </a>
                 </div>
             </div>
@@ -214,91 +64,86 @@
                     <div class="links">
                         <a href="/">Home</a>
                         <a href="../products/index.html">Shop</a>
-                        <a href="../cart/index.html">Cart</a>
-                        <a href="../wishlist/index.html">Wishlist</a>
+                        <!-- <a href="../cart/index.html" class="active">Cart</a> -->
+                        <!-- <a href="../wishlist/index.html">Wishlist</a> -->
                     </div>
                 </div>
             </div>
         </div>
-        <!--  -->
-        <div class="container">
-            <div class="conta">
-                <div class="checkout-form">
-                    <h1>Checkout</h1>
-                    <h4>Shipping Information</h4>
 
-                    <form>
-                        <label for="full-name">Full name *</label>
-                        <input type="text" id="full-name" placeholder="Enter full name" />
-
-                        <label for="email">Email address *</label>
-                        <input type="email" id="email" placeholder="Enter email address" />
-
-                        <label for="phone">Phone number *</label>
-                        <input type="tel" id="phone" placeholder="Enter phone number" />
-
-                        <label for="country">Country *</label>
-                        <select id="country">
-                            <option>Choose state</option>
-                        </select>
-
-                        <div style="display: flex; gap: 10px">
-                            <div style="flex: 1">
-                                <label for="city">City</label>
-                                <input type="text" id="city" placeholder="Enter city" />
+        <section class="checkout-section">
+            <main>
+                <div class="main-container">
+                    <!-- Checkout Form -->
+                    <section class="checkout-form">
+                        <form id="checkout-form" action="#!">
+                            <h6>Contact Information</h6>
+                            <div class="form-control">
+                                <label for="checkout-email">E-mail <span>*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="fa fa-envelope"></span>
+                                    <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email..." />
+                                    <p class="erro-m" id="email-e">Please enter a valid email address.</p>
+                                </div>
                             </div>
 
-                            <div style="flex: 1">
-                                <label for="state">State</label>
-                                <input type="text" id="state" placeholder="Enter state" />
+                            <div class="form-control">
+                                <label for="checkout-phone">Phone <span>*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="fa fa-phone"></span>
+                                    <input type="tel" name="checkout-phone" id="checkout-phone" placeholder="Enter your phone number..." />
+                                    <p class="erro-m" id="phone-e">Please enter a valid phone number.</p>
+                                </div>
                             </div>
 
-                            <div style="flex: 1">
-                                <label for="zip">ZIP Code</label>
-                                <input type="text" id="zip" placeholder="Enter ZIP code" />
+                            <h6>Shipping Address</h6>
+                            <div class="form-control">
+                                <label for="checkout-name">Full Name <span>*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="fa fa-user-circle"></span>
+                                    <input type="text" id="checkout-name" name="checkout-name" placeholder="Enter your full name..." />
+                                    <p class="erro-m" id="name-e">Full name cannot be empty.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-control">
+                                <label for="checkout-address">Address <span>*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="fa fa-home"></span>
+                                    <input type="text" name="checkout-address" id="checkout-address" placeholder="Your address..." />
+                                    <p class="erro-m" id="address-e">Address must contain at least three words.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-control-btn">
+                                <button>Continue</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Checkout Details -->
+                    <section class="checkout-details">
+                        <div class="checkout-details-inner">
+                            <div class="checkout-lists" id="p-check"></div>
+                            <div class="checkout-shipping">
+                                <h6>Shipping</h6>
+                                <p>$15</p>
+                            </div>
+                            <div class="checkout-total">
+                                <h6>Tax (5%)</h6>
+                                <p>$148.98</p>
+                            </div>
+                            <div class="checkout-total">
+                                <h6>Total</h6>
+                                <p>$148.98</p>
                             </div>
                         </div>
-                        <label for="phone">Payment Method *</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="shipping" checked /><i class="fa-solid fa-sack-dollar"></i> Cash</label>
-                            <label><input type="radio" name="shipping" /><i class="fa-brands fa-cc-visa"></i>Visa</label>
-                        </div>
-                    </form>
+                    </section>
                 </div>
-                <div class="cart-summary">
-                    <h2>Review your cart</h2>
-                    <div class="cart-item">
-                        <img src="light1_4.jpg" alt="DuoComfort " />
-                        <span>DuoComfort Sofa Premium</span>
-                        <span>$20.00</span>
-                    </div>
-                    <div class="cart-item">
-                        <img src="product-2-1.jpg" alt="IronOne Desk" />
-                        <span>IronOne Desk</span>
-                        <span>$25.00</span>
-                    </div>
-                    <div class="totals">
-                        <div>
-                            <span>Subtotal</span>
-                            <span>$45.00</span>
-                        </div>
-                        <div>
-                            <span>Shipping</span>
-                            <span>$5.00</span>
-                        </div>
-                        <div>
-                            <span>Discount</span>
-                            <span>-$10.00</span>
-                        </div>
-                        <div>
-                            <strong>Total</strong>
-                            <strong>$40.00</strong>
-                        </div>
-                    </div>
-                    <a href="#" class="pay-now">Pay Now</a>
-                    <div class="secure-checkout">Secure Checkout - SSL Encrypted</div>
-                </div>
-            </div>
-        </div>
+            </main>
+        </section>
+
+        <script src="../../js/variables.js" type="module"></script>
+        <script src="main.js" type="module"></script>
     </body>
 </html>

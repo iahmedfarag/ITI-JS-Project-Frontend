@@ -1,7 +1,7 @@
 /************************************************************
  * Reusable slider initialization function
  ************************************************************/
-function initSlider({ containerSelector, slideData, leftArrowSelector, rightArrowSelector, autoSlideIntervalMs = 5000 }) {
+export function initSlider({ containerSelector, slideData, leftArrowSelector, rightArrowSelector, autoSlideIntervalMs = 5000 }) {
     /************************************************************
      * 1) Create Slide Element
      ************************************************************/

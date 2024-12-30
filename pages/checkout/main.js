@@ -1,110 +1,98 @@
+import { handleLogout, toggleAuthLinks, updateCartQuantity } from "../../js/generalFunctions.js";
+import { logoutButton } from "../../js/variables.js";
 
-// ^01[0-2,5]{1}[0-9]{8}$
-// // /^[\+]?[0-9]{0,3}\W?+[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-//  /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+// Using the same tax and shipping rates as in the cart code
+const taxRate = 0.05;
+const shippingRate = 15.0;
+
+logoutButton.addEventListener("click", handleLogout);
+
+// Validation Setup
 const inputs = [
-    { 
-        id: 'checkout-email', 
-        errorId: 'email-e', 
-        errorMessage: 'Please enter a valid email address.', 
-        regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ 
+    {
+        id: "checkout-email",
+        errorId: "email-e",
+        errorMessage: "Please enter a valid email address.",
+        regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     },
-    { 
-        id: 'checkout-phone', 
-        errorId: 'phone-e', 
-        errorMessage: 'Please enter a valid phone number.', 
-        regex: /^01[0-2,5]{1}[0-9]{8}$/ 
+    {
+        id: "checkout-phone",
+        errorId: "phone-e",
+        errorMessage: "Please enter a valid phone number.",
+        regex: /^01[0-2,5][0-9]{8}$/,
     },
-    { 
-        id: 'checkout-name', 
-        errorId: 'name-e', 
-        errorMessage: 'Full Name cannot be empty.', 
-        regex: /.+/ // Any non-empty value
+    {
+        id: "checkout-name",
+        errorId: "name-e",
+        errorMessage: "Full Name cannot be empty.",
+        regex: /.+/,
     },
-    { 
-        id: 'checkout-address', 
-        errorId: 'address-e', 
-        errorMessage: 'Address must contain at least three words.', 
-        regex: /^(\w+\s+){2,}\w+$/ // At least three words
-    }
+    {
+        id: "checkout-address",
+        errorId: "address-e",
+        errorMessage: "Address must contain at least three words.",
+        regex: /^(\w+\s+){2,}\w+$/,
+    },
 ];
 
-// Function to validate an input field using regex
-function validateInput(inputId, errorId, errorMessage, regex) {
-    const inputElement = document.getElementById(inputId);
-    const errorElement = document.getElementById(errorId);
+// Centralized Validation Handler
+function validateField(inputElement, errorElement, regex, errorMessage) {
+    const value = inputElement.value.trim();
 
-    inputElement.addEventListener('blur', function () {
-        const value = this.value.trim();
+    if (!regex.test(value)) {
+        errorElement.textContent = value === "" ? "This field cannot be empty." : errorMessage;
+        errorElement.style.display = "block";
+        inputElement.style.border = "2px solid red";
+        inputElement.style.backgroundColor = "#ffe6e6";
+        return false;
+    }
 
-        if (value === '' || !regex.test(value)) {
-            errorElement.style.display = 'block';
-            errorElement.textContent = value === '' ? 'This field cannot be empty.' : errorMessage;
-            inputElement.style.border = '2px solid red';
-            inputElement.style.background = '#ffe6e6';
-        } else {
-            errorElement.style.display = 'none';
-            inputElement.style.border = '2px solid green';
-            inputElement.style.background = 'white';
-        }
-    });
-
-    inputElement.addEventListener('input', function () {
-        if (regex.test(this.value.trim())) {
-            errorElement.style.display = 'none';
-            inputElement.style.border = '2px solid green';
-            inputElement.style.background = 'white';
-        }
-    });
+    errorElement.style.display = "none";
+    inputElement.style.border = "2px solid green";
+    inputElement.style.backgroundColor = "white";
+    return true;
 }
 
-// Add validation for each input field
+// Add Validation for Each Input
 inputs.forEach(({ id, errorId, errorMessage, regex }) => {
-    validateInput(id, errorId, errorMessage, regex);
+    const inputElement = document.getElementById(id);
+    const errorElement = document.getElementById(errorId);
+
+    inputElement.addEventListener("blur", () => {
+        validateField(inputElement, errorElement, regex, errorMessage);
+    });
+
+    inputElement.addEventListener("input", () => {
+        validateField(inputElement, errorElement, regex, errorMessage);
+    });
 });
 
-// Handle form submission
-const form = document.getElementById('checkout-form');
-form.addEventListener('submit', function (event) {
+// Handle Form Submission
+const form = document.getElementById("checkout-form");
+form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    
+
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        alert("You are not logged in. Please log in to access your cart.");
+        return;
+    }
+
     let isValid = true;
 
-    // Validate all inputs on submit
+    // Validate all fields
     inputs.forEach(({ id, errorId, errorMessage, regex }) => {
         const inputElement = document.getElementById(id);
         const errorElement = document.getElementById(errorId);
 
-        if (inputElement.value.trim() === '' || !regex.test(inputElement.value.trim())) {
-            errorElement.style.display = 'block';
-            errorElement.textContent = inputElement.value.trim() === '' ? 'This field cannot be empty.' : errorMessage;
-            inputElement.style.border = '2px solid red';
-            inputElement.style.background = '#ffe6e6';
+        if (!validateField(inputElement, errorElement, regex, errorMessage)) {
             isValid = false;
         }
     });
 
-    // Check if any error messages are visible
-    const errorMessages = document.querySelectorAll('.error-message');
-    const anyErrorVisible = Array.from(errorMessages).some(error => error.style.display === 'block');
+    if (!isValid) return; // Stop if any validation fails
 
-    if (anyErrorVisible || !isValid) {
-        // alert('Please fix the errors in the form before submitting.');
-        return; // Exit early if validation fails or errors are visible
-    }
-
-    // If all validations are passed, proceed with form submission
-    submitForm(event);
-});
-
-// Submit Form Function
-const url = 'https://iti-js-project-backend.vercel.app/api/order/checkout';
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZlZjhkNjVkNzU0NTRhNWY0MGUyNTQiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNTMzNjc3NSwiZXhwIjoxNzM1OTQxNTc1fQ.ts6sV0HH4pCEBRfilS_3RDBOEhouVcQUOO0NYZjFGgU";
-
-async function submitForm(event) {
-    event.preventDefault(); // Prevent form submission
-    const form = event.target;
-
+    // Submit form if validation passes
     const data = {
         name: form["checkout-name"].value,
         email: form["checkout-email"].value,
@@ -112,30 +100,127 @@ async function submitForm(event) {
         phone: form["checkout-phone"].value,
     };
 
-    console.log(data.address); // Debugging purpose
-
     try {
-        const response = await fetch(url, {
-            method: 'POST',
+        const response = await fetch("https://iti-js-project-backend.vercel.app/api/order/checkout", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${authToken}`,
             },
             body: JSON.stringify(data),
         });
 
-        console.log(response); 
-        // Handle response
-        if (response.ok) {
-            const result = await response.json();
-            alert('Order submitted successfully!');
-            console.log(result);
-        } else {
+        if (!response.ok) {
             const error = await response.json();
-            alert(`Error: ${error.message || 'An unknown error occurred'}`);
+            alert(`Error: ${error.message || "Failed to submit order."}`);
+            return;
         }
+
+        const result = await response.json();
+        alert("Order submitted successfully!");
+        console.log(result);
+
+        // Navigate user to the home page after successful order
+        window.location.href = "/";
     } catch (error) {
-        console.error('An error occurred:', error);
-        alert('Failed to submit order. Please try again.');
+        console.error("An error occurred:", error);
+        alert("Failed to submit order. Please try again.");
+    }
+});
+
+// Fetch Cart Items and Render on Checkout
+async function fetchCartItemsForCheckout() {
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        alert("You are not logged in. Please log in to access your cart.");
+        return [];
+    }
+
+    try {
+        const response = await fetch("https://iti-js-project-backend.vercel.app/api/cart", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (!response.ok) throw new Error("Failed to fetch cart items.");
+
+        const data = await response.json();
+        return data.cart.items; // Return array of items
+    } catch (error) {
+        console.error("Error fetching cart items:", error);
+        return [];
     }
 }
+
+async function renderCheckoutItems() {
+    toggleAuthLinks();
+    updateCartQuantity();
+
+    const container = document.getElementById("p-check");
+    container.innerHTML = "Loading...";
+
+    const items = await fetchCartItemsForCheckout();
+    container.innerHTML = ""; // Clear "Loading..."
+
+    if (!items || items.length === 0) {
+        // If cart is empty, redirect user back to cart page
+        alert("Your cart is empty. Redirecting you to the cart page.");
+        window.location.href = "../cart/index.html";
+        return;
+    }
+
+    // Render each item
+    let subtotal = 0;
+    items.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const price = item.product.price;
+        const quantity = item.quantity;
+        const lineTotal = price * quantity;
+
+        subtotal += lineTotal;
+
+        card.innerHTML = `
+        <div class="card-image">
+            <img src="${item.product.mainImage}" alt="${item.product.name}">
+        </div>
+        <div class="card-details">
+            <div class="card-name">${item.product.name}</div>
+            <div class="card-price"><span>Price:</span> $${price}</div>
+            <div class="card-quantity"><span>Quantity:</span> ${quantity}</div>
+        </div>
+      `;
+        container.appendChild(card);
+    });
+
+    // Calculate totals
+    recalcCheckoutTotals(subtotal);
+}
+
+/**
+ * Recalculates and updates the checkout totals on the page.
+ */
+function recalcCheckoutTotals(subtotal) {
+    const tax = subtotal * taxRate;
+    const shipping = subtotal > 0 ? shippingRate : 0;
+    const total = subtotal + tax + shipping;
+
+    // Update the DOM with correct values
+    document.querySelector(".checkout-shipping p").textContent = `$${shipping.toFixed(2)}`;
+    document.querySelectorAll(".checkout-total")[0].querySelector("p").textContent = `$${tax.toFixed(2)}`; // Tax (5%)
+    document.querySelectorAll(".checkout-total")[1].querySelector("p").textContent = `$${total.toFixed(2)}`; // Grand Total
+}
+
+// Clears the displayed totals (if needed)
+function updateCheckoutTotals(shipping, tax, total) {
+    document.querySelector(".checkout-shipping p").textContent = `$${shipping.toFixed(2)}`;
+    document.querySelectorAll(".checkout-total")[0].querySelector("p").textContent = `$${tax.toFixed(2)}`;
+    document.querySelectorAll(".checkout-total")[1].querySelector("p").textContent = `$${total.toFixed(2)}`;
+}
+
+// Initialize on Page Load
+document.addEventListener("DOMContentLoaded", renderCheckoutItems);

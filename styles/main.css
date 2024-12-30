@@ -72,8 +72,8 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 20px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.0666666667) 33%, rgba(0, 0, 0, 0.3333333333) 50%, rgba(0, 0, 0, 0.0666666667) 66%) #f2f2f2;
+  height: 10px;
+  background: linear-gradient(90deg, #83b735 33%, rgba(0, 0, 0, 0.3333333333) 50%, #83b735 66%) #f2f2f2;
   background-size: 300% 100%;
   animation: l1 1s infinite linear;
 }
@@ -175,7 +175,7 @@ nav .container .cart .icon p {
   position: absolute;
   top: -8px;
   right: -10px;
-  padding: 2px;
+  padding: 2px 3px;
   font-size: 13px;
   border-radius: 50%;
 }

@@ -1,0 +1,26 @@
+header {
+    background-image: url("../../public/products/blog-title.jpg");
+    height: 400px;
+    background-size: cover;
+    h2 {
+    }
+    .categories {
+        display: flex;
+        align-items: center;
+
+        .cat {
+            .icon {
+                width: 50px;
+                img {
+                    width: 100%;
+                }
+            }
+            .content {
+                .title {
+                }
+                .quantity {
+                }
+            }
+        }
+    }
+}

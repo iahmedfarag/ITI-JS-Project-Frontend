@@ -1,25 +1,17 @@
-const toggleLoader = (status) => {
-    if (status) {
-        loading = true;
-        loaderElement.style.display = "block";
-    } else {
-        loaderElement.style.display = "none";
-        loading = false;
-    }
-};
+import { handleLogout, toggleAuthLinks } from "./js/generalFunctions.js";
+import { handleDisplaySearchResult, handleSearchBlur } from "./js/handleSearch.js";
+import { logoutButton, searchInputDesktopElement, searchInputMobileElement, searchProductsResultDesktopElement, searchProductsResultMobileElement } from "./js/variables.js";
 
-searchInputDesktopElement.addEventListener("input", (e) => handleDisplaySearchResult(e.target.value.trim(), searchProductsResultDesktopElement));
-searchInputDesktopElement.addEventListener("blur", (e) => handleSearchBlur(searchProductsResultDesktopElement));
-searchInputMobileElement.addEventListener("input", (e) => handleDisplaySearchResult(e.target.value.trim(), searchProductsResultMobileElement));
-searchInputMobileElement.addEventListener("blur", (e) => handleSearchBlur(searchProductsResultMobileElement));
+// Event listener for DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+    toggleAuthLinks();
 
-const handleOnLoad = () => {
-    toggleLoader(true);
-    getProducts();
-    getCategories();
-    toggleLoader(false);
-};
+    // Add event listener to logout button
+    logoutButton.addEventListener("click", handleLogout);
 
-window.addEventListener("load", () => {
-    handleOnLoad();
+    // Add event listeners for search inputs
+    searchInputDesktopElement.addEventListener("input", (e) => handleDisplaySearchResult(e.target.value.trim(), searchProductsResultDesktopElement));
+    searchInputDesktopElement.addEventListener("blur", () => handleSearchBlur(searchProductsResultDesktopElement));
+    searchInputMobileElement.addEventListener("input", (e) => handleDisplaySearchResult(e.target.value.trim(), searchProductsResultMobileElement));
+    searchInputMobileElement.addEventListener("blur", () => handleSearchBlur(searchProductsResultMobileElement));
 });

@@ -1,3 +1,5 @@
+import { initSlider } from "./handleSlider.js";
+
 const bestSellerSliderData = [
     {
         title: "Comfortable Chair",

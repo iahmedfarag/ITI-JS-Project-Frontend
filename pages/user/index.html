@@ -9,53 +9,50 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <!-- START - Navbar -->
-        <nav style="background-color: #f9f9f9">
+        <div id="loader"></div>
+        <!-- Navbar -->
+        <nav>
             <div class="container">
-                <!-- desktop -->
+                <!-- Desktop Navbar -->
                 <div class="desktop">
-                    <a href="/" class="logo">
-                        <img src="../../public/logo.svg" alt="logo" />
-                    </a>
+                    <a href="/" class="logo"><img src="../../public/logo.svg" alt="logo" /></a>
                     <div class="search">
                         <div class="input">
                             <input type="text" placeholder="Search for products" id="searchInputDesktop" autocomplete="off" />
-                            <i class="fas fa-search"></i>
+                            <a href="../wishlist/index.html">
+                                <i class="fas fa-search"></i>
+                            </a>
                         </div>
                         <div class="products" id="searchProductsResultDesktop"></div>
                     </div>
                     <div class="links">
-                        <!-- <a href="./pages/login/index.html" class="login">LOGIN/REGISTER</a> display his name -->
+                        <a href="./pages/login/index.html" class="login" id="login">LOGIN/REGISTER</a>
                         <a href="../wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
-                        <a href="../cart/index.html" class="cart">
+                        <a href="" class="cart">
                             <div class="icon">
                                 <i class="fa-solid fa-bag-shopping"></i>
-                                <p class="quantity">12</p>
+                                <p class="quantity"></p>
                             </div>
-                            <p>$0.00</p>
                         </a>
+                        <a href="../user/index.html" id="userProfile"><i class="fa-solid fa-user"></i></a>
+                        <button id="logout">Logout</button>
                     </div>
                 </div>
-
-                <!-- mobile -->
+                <!-- Mobile Navbar -->
                 <div class="mobile">
-                    <div class="menuBtn" id="menuBtn">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-                    <a href="/" class="logo">
-                        <img src="../../public/logo.svg" alt="logo" />
-                    </a>
-                    <a href="../cart/index.html" class="cart">
+                    <div class="menuBtn" id="menuBtn"><i class="fa-solid fa-bars"></i></div>
+                    <a href="/" class="logo"><img src="../../public/logo.svg" alt="logo" /></a>
+                    <a href="" class="cart">
                         <div class="icon">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <p class="quantity">12</p>
+                            <p class="quantity"></p>
                         </div>
-                        <p>$0.00</p>
                     </a>
                 </div>
             </div>
         </nav>
-        <!-- START - Sub Navbar -->
+
+        <!-- Sub Navbar -->
         <div class="subNavbar">
             <div class="container">
                 <div class="bar" style="padding: 15px 0">
@@ -63,17 +60,40 @@
                     <div class="links">
                         <a href="/">Home</a>
                         <a href="../products/index.html">Shop</a>
-                        <a href="../cart/index.html">Cart</a>
-                        <a href="../wishlist/index.html">Wishlist</a>
-                        <a href="../wishlist/index.html" class="active">Profile</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+
+        <!-- START - Menu in mobile view -->
+        <div class="menu" id="menu">
+            <div class="search">
+                <div class="input">
+                    <input type="text" placeholder="Search for products" autocomplete="off" id="searchInputMobile" />
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="products" id="searchProductsResultMobile"></div>
+            </div>
+            <div class="btns">
+                <button class="menuBtnMobile active" id="menuBtnMobile">Menu</button>
+                <button class="cateogriesBtnMobile" id="cateogriesBtnMobile">Categories</button>
+            </div>
+            <div class="pages" id="pagesMobile">
+                <a href="/">Home</a>
+                <a href="../user/index.html" class="active">Profile</a>
+                <a href="../products/index.html">Shop</a>
+                <a href="../cart/index.html">Cart</a>
+                <a href="../wishlist/index.html">Wishlist</a>
+                <a href="../login/index.html">LOGIN/REGISTER</a>
+            </div>
+            <div class="categories" id="categoriesMobile"></div>
+        </div>
+
+        <!-- Profile Layout -->
+        <div class="profile-layout container">
             <div class="user-info">
                 <div class="user-info-container">
-                    <img src="../../public/userprofile.avif" style="width: 100px; height: 100px" alt="User Avatar" class="user-avatar" />
+                    <img src="../../public/userprofile.avif" alt="User Avatar" class="user-avatar" />
                     <div class="user-details">
                         <table>
                             <tr>
@@ -109,7 +129,10 @@
                 </table>
             </div>
         </div>
-
-        <script src="main.js"></script>
+        <script src="../../js/variables.js" type="module"></script>
+        <script src="../../js/fetchFunctions.js" type="module"></script>
+        <script src="../../js/handleSearch.js" type="module"></script>
+        <script src="../../js/handleMenu.js" type="module"></script>
+        <script src="main.js" type="module"></script>
     </body>
 </html>
