@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const token = result.token;
                 localStorage.setItem("authToken", token);
                 if(result.user.role == 'admin'){
-                    window.location.href = "../../Dashboard ITI/Dashboard.html";
+                    window.location.href = "../dashboard/Dashboard.html";
                 }else{
                     window.location.href = "/";
                 }
