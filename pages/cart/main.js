@@ -23,7 +23,7 @@ export const fetchCartItems = async () => {
         });
 
         if (!response.ok) {
-            alert("Failed to fetch cart items. Please try again later.");
+         
             console.error("Failed to fetch cart items:", response.statusText);
             return [];
         }
@@ -31,7 +31,7 @@ export const fetchCartItems = async () => {
         const data = await response.json();
         return data.cart?.items;
     } catch (error) {
-        alert("An error occurred while fetching cart items. Please check your connection.");
+        
         console.error("Error fetching cart items:", error);
         return [];
     }
@@ -146,9 +146,9 @@ export const attachCartListeners = () => {
                     renderEmptyCart();
                 }
 
-                alert("Item removed from cart successfully.");
+           
             } catch (error) {
-                alert("An error occurred while removing the item. Please try again.");
+              
                 console.error("Error removing product:", error);
             }
         });
@@ -173,7 +173,7 @@ const handleQuantityChange = async (button, delta) => {
 
     let newQty = currentQty + delta;
     if (newQty < 1) {
-        alert("Quantity must be at least 1.");
+     
         return;
     }
 
@@ -200,9 +200,9 @@ const handleQuantityChange = async (button, delta) => {
 
         recalculateCart();
         updateCartQuantity();
-        alert("Quantity updated successfully.");
+       
     } catch (error) {
-        alert("An error occurred while updating the quantity. Please try again.");
+    
         console.error("Error updating quantity:", error);
     } finally {
         toggleLoader(false);
@@ -228,7 +228,7 @@ export const removeCartItem = async (productId) => {
             throw new Error("Failed to remove product");
         }
     } catch (error) {
-        alert("Failed to remove the product. Please try again.");
+     
         console.error("Error removing product:", error);
     } finally {
         toggleLoader(false);

@@ -1,11 +1,11 @@
 /* Cart Container */
 .shopping-cart {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 20px;
-    border: 1px solid #ddd;
+    
     border-radius: 8px;
     background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
 }
 
 /* Column Labels */
@@ -13,8 +13,10 @@
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+    background-color: #eee;
+    text-align: left;
     border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+    padding: 10px;
     margin-bottom: 20px;
 }
 .column-labels label {
@@ -74,7 +76,7 @@
 .product-price,
 .product-line-price {
     width: 12%;
-    text-align: right;
+    text-align: center;
     font-weight: bold;
     color: #333;
 }
@@ -124,7 +126,7 @@
     padding: 8px 15px;
     background-color: #e63946;
     color: #fff;
-    font-weight: bold;
+    font-weight:300;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -133,11 +135,31 @@
     background-color: #d62828;
 }
 
+.totals-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.totalsText {
+    display: flex;           
+    flex-direction: column;  
+    border-top: 1px solid rgb(181, 179, 179);
+    width: calc(50% - 5px);   
+    margin-top: 20px;         
+    padding: 10px;  
+    justify-content: center;          
+  
+}
+.totalsText p{
+   padding-top: 10px;
+}
+
 /* Totals Section */
 .totals {
     margin-top: 20px;
     border-top: 2px solid #eee;
-    padding-top: 15px;
+    padding: 15px;
+    width: calc(50% - 5px);
 }
 .totals .totals-item {
     display: flex;
@@ -158,14 +180,29 @@
 }
 
 /* Checkout Button */
+.check{
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+align-items: center;
+}
+.check p{
+    font-size: 16px;
+    
+}
+.check i{
+    font-size: 16px;
+    color: #666;
+    padding-right: 5px;
+    
+}
 .checkout {
     display: inline-block;
-    margin-top: 20px;
     padding: 12px 25px;
     background-color: #28a745;
     color: #fff;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 300;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
@@ -195,8 +232,13 @@
     .product-quantity {
         justify-content: flex-start;
     }
+    .totalsText {
+        width: calc(100%);
+        align-items: center;
+    }
+    /* Totals Section */
     .totals {
-        text-align: center;
+        width: calc(100%);
     }
     .checkout {
         width: 100%;

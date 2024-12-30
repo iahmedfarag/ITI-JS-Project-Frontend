@@ -164,7 +164,7 @@ export const addProductToCart = async (id) => {
         // Find the button for visual feedback
         const button = document.querySelector(`.add-to-cart-btn[data-id="${id}"]`);
         if (!button) {
-            alert("Button not found.");
+          
             return;
         }
 
@@ -189,11 +189,11 @@ export const addProductToCart = async (id) => {
             button.textContent = originalText;
             button.disabled = false;
             const errorData = await addResponse.json();
-            alert(`Error adding product to cart: ${errorData.message}`);
+        
             return;
         }
 
-        alert("Product added to cart successfully!");
+      
         button.textContent = "Added To Cart";
         button.disabled = true;
 
@@ -207,7 +207,7 @@ export const addProductToCart = async (id) => {
             button.textContent = "Add To Cart";
             button.disabled = false;
         }
-        alert("An error occurred while adding the product to the cart.");
+       
     }
 };
 
@@ -275,7 +275,6 @@ export const toggleWishlistItem = async (id, heartIcon) => {
 
         if (!response.ok) {
             const errorData = await response.json();
-            alert(`Error managing wishlist: ${errorData.message}`);
             return;
         }
 
@@ -283,15 +282,15 @@ export const toggleWishlistItem = async (id, heartIcon) => {
             heartIcon.classList.remove("fa-solid");
             heartIcon.classList.add("fa-regular");
             heartIcon.style.color = "";
-            alert("Product removed from wishlist.");
+          
         } else {
             heartIcon.classList.remove("fa-regular");
             heartIcon.classList.add("fa-solid");
             heartIcon.style.color = "red";
-            alert("Product added to wishlist.");
+        
         }
     } catch (error) {
         console.error("Error managing wishlist:", error);
-        alert("An error occurred while managing the product in your wishlist.");
+      
     }
 };
