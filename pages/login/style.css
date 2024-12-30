@@ -127,6 +127,22 @@ form p {
     padding: 10px 20px;
     font-weight: bold;
     color: #333;
+    background-color: #e8e8e8;
+}
+
+.err{
+    text-align: center;
+    justify-content: center;
+}
+#errorMsg {
+    color: red;
+    display: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+    border: solid 1px red;
+    margin-top: 10px;
+
 }
 
 @media only screen and (max-width: 700px) {

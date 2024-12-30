@@ -62,6 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+
+    const errorMsgElement = document.getElementById('errorMsg');
+    errorMsgElement.textContent = ''; 
+
     // Form Submit Event
     loginForm.addEventListener("submit", async function (e) {
         e.preventDefault();
@@ -105,21 +109,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginData),
             });
-
+            const result = await response.json();
             if (response.ok) {
-                const result = await response.json();
+                
                 const token = result.token;
                 localStorage.setItem("authToken", token);
-                window.location.href = "/";
-                console.log("Login successful:", result);
+                if(result.user.role == 'admin'){
+                    window.location.href = "../../Dashboard ITI/Dashboard.html";
+                }else{
+                    window.location.href = "/";
+                }
+                
+                console.log("Login successful:", result.user);
             } else {
-                const error = await response.json();
+              
+                errorMsgElement.style.display = "block"
+                errorMsgElement.textContent = result.error;  
+                errorMsgElement.style.color = 'red';
                 console.error(`Login failed: ${error.message}`);
-                alert(`Login failed: ${error.message}`);
+                
             }
         } catch (error) {
             console.error("An error occurred during login:", error.message);
-            alert("An error occurred during login. Please try again later.");
+           
         }
     });
 });
