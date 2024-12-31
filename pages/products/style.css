@@ -63,7 +63,6 @@
 
 .row {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
@@ -214,7 +213,6 @@
 
 .paginationContainer {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
