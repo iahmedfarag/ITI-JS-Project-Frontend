@@ -7,21 +7,6 @@ let totalPages = 1;
 
 let wishlistProductIds = []; // Global wishlist data
 
-// Image Hover Functions
-const handleMouseEnter = (element) => {
-    const img = element.querySelector("img");
-    if (img && img.dataset.secondimg) {
-        img.src = img.dataset.secondimg;
-    }
-};
-
-const handleMouseLeave = (element) => {
-    const img = element.querySelector("img");
-    if (img && img.dataset.mainimg) {
-        img.src = img.dataset.mainimg;
-    }
-};
-
 // Function to Adjust Items Per Page Based on Screen Size
 const updateItemsPerPage = () => {
     if (window.matchMedia("(min-width: 992px)").matches) {

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Product Details</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../../styles/main.css" />
+        <link rel="stylesheet" href="styleProduct.css" />
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav>
+            <div class="container">
+                <!-- Desktop Navbar -->
+                <div class="desktop">
+                    <a href="/" class="logo"><img src="../../public/logo.svg" alt="logo" /></a>
+                    <div class="search">
+                        <div class="input">
+                            <input type="text" placeholder="Search for products" id="searchInputDesktop" autocomplete="off" />
+                            <a href="../wishlist/index.html"><i class="fas fa-search"></i></a>
+                        </div>
+                        <div class="products" id="searchProductsResultDesktop"></div>
+                    </div>
+                    <div class="links">
+                        <a href="./pages/login/index.html" class="login" id="login">LOGIN/REGISTER</a>
+                        <a href="../wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
+                        <a href="" class="cart">
+                            <div class="icon">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <p class="quantity"></p>
+                            </div>
+                        </a>
+                        <a href="../user/index.html" id="userProfile"><i class="fa-solid fa-user"></i></a>
+                        <button id="logout">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Mobile Navbar -->
+                <div class="mobile">
+                    <div class="menuBtn" id="menuBtn"><i class="fa-solid fa-bars"></i></div>
+                    <a href="/" class="logo"><img src="../../public/logo.svg" alt="logo" /></a>
+                    <a href="" class="cart">
+                        <div class="icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <p class="quantity"></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sub Navbar -->
+        <div class="subNavbar">
+            <div class="container">
+                <div class="bar" style="padding: 15px 0">
+                    <div class=""></div>
+                    <div class="links">
+                        <a href="/">Home</a>
+                        <a href="../products/index.html">Shop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container2" id="container"></div>
+        <div class="cantainer2" id="myData"></div>
+
+        <script src="singleProduct.js"></script>
+    </body>
+</html>
