@@ -68,6 +68,7 @@ export const initializeCart = async () => {
 export const renderCartItems = (items) => {
     const container = document.getElementById("product-container");
     const totalsSection = document.querySelector(".totals");
+    const totalsTextSection = document.querySelector(".totalsText");
     const checkoutButton = document.querySelector(".checkout");
 
     container.innerHTML = ""; // Clear previous items
@@ -75,6 +76,7 @@ export const renderCartItems = (items) => {
     if (items && items.length > 0) {
         // Show totals and checkout button
         totalsSection.classList.remove("hidden");
+        totalsTextSection.classList.remove("hidden");
         checkoutButton.classList.remove("hidden");
 
         items.forEach((item) => {
@@ -110,6 +112,7 @@ export const renderCartItems = (items) => {
 export const renderEmptyCart = () => {
     const container = document.getElementById("product-container");
     const totalsSection = document.querySelector(".totals");
+    const totalsTextSection = document.querySelector(".totalsText");
     const checkoutButton = document.querySelector(".checkout");
 
     container.innerHTML = `
@@ -122,6 +125,7 @@ export const renderEmptyCart = () => {
 
     // Hide totals and checkout button
     totalsSection.classList.add("hidden");
+    totalsTextSection.classList.add("hidden");
     checkoutButton.classList.add("hidden");
 };
 

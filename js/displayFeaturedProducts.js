@@ -51,7 +51,7 @@ export const renderProducts = async () => {
                     <p class="price">${prd.price}</p>
                 </div>
                 <div class="content">
-                    <p>${prd.description}</p>
+                    <p>${prd.description.length > 100 && prd.description.slice(0, 100)}</p>
                     <div class="btns">
                         <i class="fa-regular fa-heart wishlist-icon" data-id="${prd._id}"></i>
                         <button class="add-to-cart-btn" data-id="${prd._id}">Add To Cart</button>

@@ -1,3 +1,7 @@
+import { handleLogout, toggleAuthLinks, updateCartQuantity } from "../../js/generalFunctions.js";
+import { logoutButton } from "../../js/variables.js";
+logoutButton.addEventListener("click", handleLogout);
+
 const resizeButtonlist = document.getElementById("resizeButtonlist");
 const resizeButton2 = document.getElementById("resizeButton2");
 const resizeButton3 = document.getElementById("resizeButton3");
@@ -270,3 +274,8 @@ document.getElementById("cars").addEventListener("change", function () {
 
     document.getElementById("myData").innerHTML = sortedCartona;
 });
+
+window.onload = () => {
+    toggleAuthLinks();
+    updateCartQuantity();
+};
