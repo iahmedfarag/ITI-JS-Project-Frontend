@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Check if the user is already logged in
-
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+        window.location.href = "/";
+        return;
+    }
     // Cached DOM elements
     const loginForm = document.getElementById("loginForm");
     const emailInput = document.getElementById("emil");
@@ -62,9 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-
-    const errorMsgElement = document.getElementById('errorMsg');
-    errorMsgElement.textContent = ''; 
+    const errorMsgElement = document.getElementById("errorMsg");
+    errorMsgElement.textContent = "";
 
     // Form Submit Event
     loginForm.addEventListener("submit", async function (e) {
@@ -111,27 +114,23 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             const result = await response.json();
             if (response.ok) {
-                
                 const token = result.token;
                 localStorage.setItem("authToken", token);
-                if(result.user.role == 'admin'){
+                if (result.user.role == "admin") {
                     window.location.href = "../dashboard/Dashboard.html";
-                }else{
+                } else {
                     window.location.href = "/";
                 }
-                
+
                 console.log("Login successful:", result.user);
             } else {
-              
-                errorMsgElement.style.display = "block"
-                errorMsgElement.textContent = result.error;  
-                errorMsgElement.style.color = 'red';
+                errorMsgElement.style.display = "block";
+                errorMsgElement.textContent = result.error;
+                errorMsgElement.style.color = "red";
                 console.error(`Login failed: ${error.message}`);
-                
             }
         } catch (error) {
             console.error("An error occurred during login:", error.message);
-           
         }
     });
 });

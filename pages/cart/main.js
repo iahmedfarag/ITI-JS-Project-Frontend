@@ -23,7 +23,6 @@ export const fetchCartItems = async () => {
         });
 
         if (!response.ok) {
-         
             console.error("Failed to fetch cart items:", response.statusText);
             return [];
         }
@@ -31,7 +30,6 @@ export const fetchCartItems = async () => {
         const data = await response.json();
         return data.cart?.items;
     } catch (error) {
-        
         console.error("Error fetching cart items:", error);
         return [];
     }
@@ -145,10 +143,7 @@ export const attachCartListeners = () => {
                 if (!document.querySelectorAll(".product").length) {
                     renderEmptyCart();
                 }
-
-           
             } catch (error) {
-              
                 console.error("Error removing product:", error);
             }
         });
@@ -173,7 +168,6 @@ const handleQuantityChange = async (button, delta) => {
 
     let newQty = currentQty + delta;
     if (newQty < 1) {
-     
         return;
     }
 
@@ -200,9 +194,7 @@ const handleQuantityChange = async (button, delta) => {
 
         recalculateCart();
         updateCartQuantity();
-       
     } catch (error) {
-    
         console.error("Error updating quantity:", error);
     } finally {
         toggleLoader(false);
@@ -228,7 +220,6 @@ export const removeCartItem = async (productId) => {
             throw new Error("Failed to remove product");
         }
     } catch (error) {
-     
         console.error("Error removing product:", error);
     } finally {
         toggleLoader(false);
