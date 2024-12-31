@@ -1,7 +1,8 @@
-import { handleLogout, toggleAuthLinks, updateCartQuantity } from "../../js/generalFunctions.js";
+import { handleLogout, toggleAuthLinks, toggleLoader, updateCartQuantity } from "../../js/generalFunctions.js";
 import { logoutButton } from "../../js/variables.js";
 logoutButton.addEventListener("click", handleLogout);
-
+toggleAuthLinks();
+updateCartQuantity();
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const productId = urlParams.get("id");
@@ -66,7 +67,7 @@ async function fetchProductDetails(productId) {
                 <input id="quantityInput" type="text" value="0" readonly>
                 <button id="increaseBtn">+</button>
               </div>
-              ${product.quantity > 0 ? `<button class="add-to-cart" id="addToCard">Add To Cart</button>` : ""}
+              ${product.quantity > 0 ? `<button class="add-to-cart" id="addToCard-${product}">Add To Cart</button>` : ""}
                         </div>
         <div class="u-desc">
           <div class="extra-links" >
@@ -113,7 +114,6 @@ async function fetchProductDetails(productId) {
     }
 }
 
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZjNjBjNjk5MDkzYWZmODRkMTM0NGYiLCJyb2xlIjoidXNlciIsImlhdCI6MTczNTIwMjgxNCwiZXhwIjoxNzM1ODA3NjE0fQ.Xba6hWCTuoMyFkf8yipfJNFj9om4T7vrBJfSooXGItA";
 async function getWishList() {
     try {
         const response = await fetch(`https://iti-js-project-backend.vercel.app/api/wishlist`, {
@@ -130,18 +130,18 @@ async function getWishList() {
         const wishlistButton = document.getElementById("addToWishlist");
         if (productExists) {
             wishlistButton.innerHTML = `
-          <div style="display: flex; justify-content: center; align-items: center;">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
-              <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-              <span>Added to Wishlist</span>
-          </div>`;
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <span>Added to Wishlist</span>
+            </div>`;
         } else {
             wishlistButton.innerHTML = `
-          <div style="display: flex; justify-content: center; align-items: center;">
-              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000">
-              <path d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Zm0-97q93-83 153-141.5t95.5-102Q764-528 778-562t14-67q0-59-40-99t-99-40q-35 0-65.5 14.5T535-713l-35 41h-40l-35-41q-22-26-53.5-40.5T307-768q-59 0-99 40t-40 99q0 33 13 65.5t47.5 75.5q34.5 43 95 102T480-241Zm0-264Z"/></svg>
-              <span style="font-size: 15px;">Add to wishlist</span>
-          </div>`;
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000">
+                <path d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Zm0-97q93-83 153-141.5t95.5-102Q764-528 778-562t14-67q0-59-40-99t-99-40q-35 0-65.5 14.5T535-713l-35 41h-40l-35-41q-22-26-53.5-40.5T307-768q-59 0-99 40t-40 99q0 33 13 65.5t47.5 75.5q34.5 43 95 102T480-241Zm0-264Z"/></svg>
+                <span style="font-size: 15px;">Add to wishlist</span>
+            </div>`;
             wishlistButton.addEventListener("click", async function () {
                 try {
                     const addResponse = await fetch(`https://iti-js-project-backend.vercel.app/api/wishlist`, {
@@ -156,11 +156,11 @@ async function getWishList() {
                         throw new Error(`HTTP error! Status: ${addResponse.status}`);
                     }
                     wishlistButton.innerHTML = `
-              <div style="display: flex; justify-content: center; align-items: center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
-                  <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                  <span>Added to Wishlist</span>
-              </div>`;
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                    <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                    <span>Added to Wishlist</span>
+                </div>`;
                     window.location.reload();
                 } catch (error) {
                     console.error("Error adding to wishlist:", error);
@@ -171,54 +171,62 @@ async function getWishList() {
         console.error("Error checking wishlist:", error);
     }
 }
-async function addProductToCart() {
+async function addProductToCart(productId) {
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        window.location.href = "/"; // Redirect to the home page
+        return; // Stop further execution
+    }
     try {
+        // Fetch existing cart data
         const response = await fetch(`https://iti-js-project-backend.vercel.app/api/cart`, {
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${authToken}`,
             },
         });
+
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
+
+        // Parse the cart data
         const cart = await response.json();
-        // console.log(cart.cart.items[0].product._id)
+
+        // Check if the product already exists in the cart
         const productExistsInCart = cart.cart.items.find((item) => item.product._id === productId);
 
-        console.log(productExistsInCart);
-        const cartButton = document.getElementById("addToCard");
+        // Select the button dynamically based on productId
+        const cartButton = document.getElementById(`addToCard-${productId}`);
+
         if (productExistsInCart) {
             cartButton.innerHTML = `Added To Cart`;
         } else {
-            cartButton.innerHTML = `
-          Add To Cart`;
-            wishlistButton.addEventListener("click", async function () {
-                try {
-                    const addResponse = await fetch(`https://iti-js-project-backend.vercel.app/api/cart`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: `Bearer ${token}`,
-                        },
-                        body: JSON.stringify({
-                            productId: productId,
-                            quantity: quantityInput.value,
-                        }),
-                    });
-                    if (!addResponse.ok) {
-                        throw new Error(`HTTP error! Status: ${addResponse.status}`);
-                    }
-                    wishlistButton.innerHTML = `
-              Added To Cart`;
-                    window.location.reload();
-                } catch (error) {
-                    console.error("Error adding to wishlist:", error);
-                }
+            cartButton.innerHTML = `Add To Cart`;
+
+            // Add product to cart
+            const addResponse = await fetch(`https://iti-js-project-backend.vercel.app/api/cart`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${authToken}`,
+                },
+                body: JSON.stringify({
+                    productId: productId,
+                    quantity: 1, // Default quantity
+                }),
             });
+
+            if (!addResponse.ok) {
+                throw new Error(`HTTP error! Status: ${addResponse.status}`);
+            }
+
+            // Update the button text
+            cartButton.innerHTML = `Added To Cart`;
         }
     } catch (error) {
-        console.error("Error checking wishlist:", error);
+        console.error("Error adding to cart:", error);
+        alert("Failed to add product to cart. Please try again.");
     }
 }
 
@@ -235,11 +243,7 @@ async function getProductsByCategoryID(id) {
     }
 }
 
+fetchProductDetails(productId);
+getWishList();
+// addProductToCart();
 // getProductsByCategoryID(categoryID);
-window.onload = () => {
-    toggleAuthLinks();
-    updateCartQuantity();
-    fetchProductDetails(productId);
-    getWishList();
-    addProductToCart();
-};
