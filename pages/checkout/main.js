@@ -112,19 +112,19 @@ form.addEventListener("submit", async (event) => {
 
         if (!response.ok) {
             const error = await response.json();
-            // alert(`Error: ${error.message || "Failed to submit order."}`);
+            alert(`Error: ${error.message || "Failed to submit order."}`);
             return;
         }
 
         const result = await response.json();
-    
+        alert("Order submitted successfully!");
         console.log(result);
 
         // Navigate user to the home page after successful order
         window.location.href = "/";
     } catch (error) {
         console.error("An error occurred:", error);
-     
+        alert("Failed to submit order. Please try again.");
     }
 });
 
@@ -167,7 +167,7 @@ async function renderCheckoutItems() {
 
     if (!items || items.length === 0) {
         // If cart is empty, redirect user back to cart page
-       
+        alert("Your cart is empty. Redirecting you to the cart page.");
         window.location.href = "../cart/index.html";
         return;
     }

@@ -27,7 +27,7 @@ export const fetchWishlistItems = async () => {
         }
 
         const data = await response.json();
-        return data.wishlist.products;
+        return data?.wishlist?.products;
     } catch (error) {
         alert("An error occurred while fetching wishlist items. Please check your connection.");
         console.error("Error fetching wishlist items:", error);

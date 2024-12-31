@@ -23,12 +23,11 @@
                         <div class="products" id="searchProductsResultDesktop"></div>
                     </div>
                     <div class="links">
-                        <a href="./pages/login/index.html" class="login" id="login">LOGIN/REGISTER</a>
-                        <a href="../wishlist/index.html"><i class="fa-regular fa-heart"></i></a>
-                        <a href="" class="cart">
+                        <a href="../login/index.html" class="login" id="login">LOGIN/REGISTER</a>
+                        <a href="../cart/index.html" class="cart">
                             <div class="icon">
                                 <i class="fa-solid fa-bag-shopping"></i>
-                                <p class="quantity"></p>
+                                <p class="quantity">0</p>
                             </div>
                         </a>
                         <a href="../user/index.html" id="userProfile"><i class="fa-solid fa-user"></i></a>
@@ -40,7 +39,7 @@
                 <div class="mobile">
                     <div class="menuBtn" id="menuBtn"><i class="fa-solid fa-bars"></i></div>
                     <a href="/" class="logo"><img src="../../public/logo.svg" alt="logo" /></a>
-                    <a href="" class="cart">
+                    <a href="../cart/index.html" class="cart">
                         <div class="icon">
                             <i class="fa-solid fa-bag-shopping"></i>
                             <p class="quantity"></p>
@@ -104,10 +103,11 @@
                 </div>
             </div>
         </div>
+
         <div class="container2" style="margin-top: 50px">
             <div class="row">
                 <div class="col-md-3">
-                    <!-- <div class="filter-container">
+                    <div class="filter-container">
                         <h4>FILTER BY PRICE</h4>
                         <div class="slider-wrapper">
                             <div class="slider-container">
@@ -121,7 +121,7 @@
                             </p>
                             <button id="filterBtn">FILTER</button>
                         </div>
-                    </div> -->
+                    </div>
                     <div style="height: 1px; width: 100%; background-color: #767676"></div>
                     <div class="filter-container">
                         <h4>FILTER BY CATEGORY</h4>
@@ -163,7 +163,9 @@
                 </div>
             </div>
         </div>
-
-        <script src="script.js"></script>
+        <script src="../../js/variables.js" type="module"></script>
+        <script src="../../js/generalFunctions.js" type="module"></script>
+        <script src="../../js/fetchFunctions.js" type="module"></script>
+        <script src="script.js" type="module"></script>
     </body>
 </html>

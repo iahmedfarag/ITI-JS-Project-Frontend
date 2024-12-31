@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Check if the user is already logged in
-    const authToken = localStorage.getItem("authToken");
-    if (authToken) {
-        window.location.href = "/";
-        return;
-    }
+        const authToken = localStorage.getItem("authToken");
+        if (authToken) {
+            window.location.href="/"
+        }
+
     // Cached DOM elements
     const loginForm = document.getElementById("loginForm");
     const emailInput = document.getElementById("emil");
@@ -66,9 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    const errorMsgElement = document.getElementById("errorMsg");
-    errorMsgElement.textContent = "";
-
     // Form Submit Event
     loginForm.addEventListener("submit", async function (e) {
         e.preventDefault();
@@ -112,25 +109,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginData),
             });
-            const result = await response.json();
+
             if (response.ok) {
+                const result = await response.json();
                 const token = result.token;
                 localStorage.setItem("authToken", token);
-                if (result.user.role == "admin") {
-                    window.location.href = "../dashboard/Dashboard.html";
-                } else {
-                    window.location.href = "/";
-                }
-
-                console.log("Login successful:", result.user);
+                window.location.href = "/";
+                console.log("Login successful:", result);
             } else {
-                errorMsgElement.style.display = "block";
-                errorMsgElement.textContent = result.error;
-                errorMsgElement.style.color = "red";
+                const error = await response.json();
                 console.error(`Login failed: ${error.message}`);
+                alert(`Login failed: ${error.message}`);
             }
         } catch (error) {
             console.error("An error occurred during login:", error.message);
+            alert("An error occurred during login. Please try again later.");
         }
     });
 });
