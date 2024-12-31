@@ -13,13 +13,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    align-items: center;
-    margin-top: 30px;
 }
+
 .sin h3 {
-    padding: 15px;
     font-size: 25px;
 }
 .register1 {
@@ -63,14 +59,12 @@
 }
 form p {
     color: #767676;
-    margin: 5px 0;
-    font-size: small;
+    margin: 10px 0;
 }
 
 .register1 form button {
     width: 100%;
     color: white;
-    margin-top: 10px;
     background-color: #83b735;
     padding: 13px 16px;
     border: none;
@@ -79,19 +73,15 @@ form p {
     /* color: #333; */
 }
 
-.register1 form button:hover {
-    background-color: #6b952d;
-}
-
 .Login1 {
     width: 50%;
     display: flex;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     align-items: center;
     flex-direction: column;
     height: 500px;
     /* height: 100%; */
-    margin-bottom: 80px;
+    margin-bottom: 85px;
 }
 .Login1 p {
     color: #767676;
@@ -101,12 +91,12 @@ form p {
     padding: 15px;
 }
 .Login1 button {
-    background-color: #e8e8e8;
     margin: 3px;
     border: none;
     padding: 10px 20px;
     font-weight: bold;
     color: #333;
+    background-color: #eee;
 }
 .erro-m {
     color: red;

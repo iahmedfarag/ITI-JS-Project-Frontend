@@ -18,6 +18,9 @@
                     <a href="/" class="logo">
                         <img src="../../public/logo.svg" alt="logo" />
                     </a>
+                    <div class="links">
+                        <a href="" class="login">LOGIN/REGISTER</a>
+                    </div>
                 </div>
                 <!-- mobile -->
                 <div class="mobile">
@@ -31,15 +34,11 @@
             </div>
         </nav>
 
-        <section class="sin">
-            <div class="container">
+        <div class="container">
+            <section class="sin">
                 <div class="cotan-form">
                     <div class="login2">
                         <h3>LOGIN</h3>
-                        <div class="err">
-                            <span id="errorMsg"></span>
-                        </div>
-
                         <form action="" id="loginForm">
                             <label for=""> Email address <span style="color: red">*</span> </label>
                             <input type="text" id="emil" />
@@ -50,7 +49,7 @@
                             <div class="r-me">
                                 <div class="c-box">
                                     <input type="checkbox" id="rememberMe" />
-                                    <label for="">Remember me</label>
+                                    <label for="" style="margin: 2px">Remember me</label>
                                 </div>
                             </div>
                             <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <strong>privacy policy.</strong></p>
@@ -60,12 +59,12 @@
                     <div class="Register2">
                         <h3>REGISTER</h3>
                         <p>Registering for this site allows you to access your order status and history. Just fill in the fields below, and we’ll get a new account set up for you in no time. We will only ask you for information necessary to make the purchase process faster and easier.</p>
-                        <a href="../Register/index.html"><button>REGISTER</button></a>
+                        <!-- <button>REGISTER</button> -->
+                        <button><a href="../register/index.html">REGISTER</a></button>
                     </div>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>

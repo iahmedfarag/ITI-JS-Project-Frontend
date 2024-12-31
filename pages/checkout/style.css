@@ -30,7 +30,7 @@ header h3 {
     background-color: #fff;
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
 }
 
 .checkout-form h6 {
@@ -71,18 +71,22 @@ header h3 {
 .input-wrapper input {
     width: 100%;
     padding: 12px 14px 12px 40px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    color: #444;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    /* padding: 0 15px; */
+    max-width: 100%;
+    width: 90%;
+    height: 42px;
+    border: rgb(229 229 229) solid 2px;
+    border-radius: 3px;
+    background-color: #00000000;
+    box-shadow: none;
+    vertical-align: middle;
+    font-size: 14px;
 }
 
 .input-wrapper input:focus {
-    border-color: #5cb85c;
+    /* border-color: #5cb85c; */
     background-color: #fff;
-    box-shadow: 0 0 8px rgba(92, 184, 92, 0.4);
+    /* box-shadow: 0 0 8px rgba(92, 184, 92, 0.4); */
     outline: none;
 }
 
@@ -109,19 +113,18 @@ header h3 {
 
 /* Submit Button */
 .form-control-btn {
-    text-align: center;
+    /* text-align: center; */
     margin-top: 20px;
 }
 
 .form-control-btn button {
-    background: #5cb85c;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    width: 90%;
+color: white;
+background-color: #83b735;
+padding: 13px 16px;
+border: none;
+border-radius: 2px;
+font-weight: bold;
     transition: background 0.3s, transform 0.3s;
 }
 
@@ -140,14 +143,14 @@ header h3 {
     min-width: 280px;
     background-color: #fff;
     padding: 25px;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .checkout-details-inner {
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 6px;
+    border-radius: 4px;
     background: #f9f9f9;
 }
 
@@ -162,7 +165,7 @@ header h3 {
     gap: 20px;
     padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 6px;
+    border-radius: 4px;
     background: #fff;
     transition: box-shadow 0.3s;
     margin-bottom: 15px;
@@ -176,7 +179,7 @@ header h3 {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 .card-details {
