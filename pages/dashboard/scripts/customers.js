@@ -19,7 +19,7 @@ document.querySelector(".search").addEventListener("input", function () {
 document.addEventListener("DOMContentLoaded", function () {
     alertUser("hi");
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     if (!token) {
         alert("User not authenticated!");
         return;
@@ -95,7 +95,7 @@ function deleteuser(userId) {
     const confirmation = confirm("Are you sure you want to delete this User?");
     if (!confirmation) return;
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     if (!token) {
         alert("User not authenticated!");
         return;
@@ -134,7 +134,7 @@ function closeModalAddUser() {
 document.getElementById("addUserForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     if (!token) {
         alert("User not authenticated!");
         return;

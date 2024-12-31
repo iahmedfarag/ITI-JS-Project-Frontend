@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("https://iti-js-project-backend.vercel.app/api/order", {
         method: "GET",
         headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
     })
         .then((response) => response.json())
@@ -85,6 +85,8 @@ function renderOrders(orders) {
             orderCountElement.innerText = ordersCount;
         }
 
+        
+
         row.innerHTML = `
         <td>
             <div class="flex items-center">
@@ -125,7 +127,7 @@ function viewOrder(orderId) {
     fetch(`https://iti-js-project-backend.vercel.app/api/order/${orderId}`, {
         method: "GET",
         headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
     })
         .then((response) => response.json())
@@ -187,7 +189,7 @@ function updateOrderStatus(orderId, status) {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
         body: JSON.stringify({ orderId: orderId, status: status }),
     })
