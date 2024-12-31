@@ -1,177 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-body {
-  /* font-family: "Dancing Script", serif; */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.container {
-  padding: 20px;
-  width: 1192px;
-  margin:20px auto;
-  height: 100vh;
+.container2 {
+    padding: 20px;
+    width: 1192px;
+    margin: 20px auto;
+    height: 100vh;
 }
 
 .breadcrumb {
-  font-size: 14px;
-  margin-bottom: 15px;
-  display: flex;
-  gap: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 8px;
 }
 
 .product-page {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
-.main-image img{
-  height: 100vh;
+.main-image img {
+    height: 100vh;
 }
 .image-gallery {
-  width: 50%;
-  flex: 1;
-  display: flex;
-  gap: 10px;
+    width: 50%;
+    flex: 1;
+    display: flex;
+    gap: 10px;
 }
 
 .thumbnails img {
-  width: 122px;
-  height:154px;
-  cursor: pointer;
-  margin-bottom: 10px; 
-  display: block;
-} 
+    width: 122px;
+    height: 154px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: block;
+}
 
 .main-image img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .product-info {
-  flex: 1;
-  position: relative;
+    flex: 1;
+    position: relative;
 }
 
 .product-info h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .price {
-  color: #74a32f;
-  font-size: 22px;
-  margin-bottom: 10px;
+    color: #74a32f;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
-.u-desc{
-  position: absolute;
-  bottom:0;
-  width: 100%;
+.u-desc {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .description {
-  font-size: 14px;
-  margin-bottom: 15px;
-  /* font-weight: 600; */
+    font-size: 14px;
+    margin-bottom: 15px;
+    /* font-weight: 600; */
 }
 
 .colors {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .color-options {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .color {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    cursor: pointer;
 }
 
 .color.beige {
-  background-color: #f3e5ab;
+    background-color: #f3e5ab;
 }
 
 .color.black {
-  background-color: #000;
+    background-color: #000;
 }
 
 .actions {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .quantity {
-  display: flex;
-  align-items: center;
-  border: 0px;
-  border-radius: 4px;
-  width: fit-content;
+    display: flex;
+    align-items: center;
+    border: 0px;
+    border-radius: 4px;
+    width: fit-content;
 }
 
 .quantity button {
-  height: 35px;
-  width: 20px;
-  padding: 5px 10px;
-  border: 1px solid #ddd;
-  background-color: white;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color:#767676 ;
-  transition: all 0.5s;
+    height: 35px;
+    width: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #767676;
+    transition: all 0.5s;
 }
-.quantity button:hover{
-  background-color: #74a32f;
-  color: white;
+.quantity button:hover {
+    background-color: #74a32f;
+    color: white;
 }
 
 .quantity input {
-  height: 31px;
-  width: 25px;
-  text-align: center;
-  border:1px solid #ddd;
-  border-left: none;
-  border-right: none;
-  font-size: 16px;
-  color:#767676 ;
-
+    height: 31px;
+    width: 25px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    font-size: 16px;
+    color: #767676;
 }
 .add-to-cart {
-  padding: 10px 15px;
-  border: 0px;
-  cursor: pointer;
-  background-color: #74a32f;
-  color: white;
+    padding: 10px 15px;
+    border: 0px;
+    cursor: pointer;
+    background-color: #74a32f;
+    color: white;
 }
 
-
-
 .extra-links {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .meta {
-  font-size: 12px;
-  color: #777;
+    font-size: 12px;
+    color: #777;
 }
 
 .share {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .share i {
-  color: #666666;
-  margin-inline: 5px;
-  transition: color 0.3s ease; 
+    color: #666666;
+    margin-inline: 5px;
+    transition: color 0.3s ease;
 }
 
 .share i:hover {
-  color: #333333; 
+    color: #333333;
 }
