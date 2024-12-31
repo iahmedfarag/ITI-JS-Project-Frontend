@@ -1,4 +1,4 @@
 function removeToken() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("authToken");
     localStorage.removeItem("user");
 }

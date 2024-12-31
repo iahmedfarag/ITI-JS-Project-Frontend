@@ -120,18 +120,7 @@ function displayProducts(selectedCategory = "", searchText = "") {
                                     </svg>
                                     Edit
                                 </button>
-                                <button type="button" class="preview-button" data-id="${product._id}"
-                                    data-drawer-target="drawer-read-product-advanced"
-                                    data-drawer-show="drawer-read-product-advanced"
-                                    aria-controls="drawer-read-product-advanced">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 mr-2 -ml-0.5">
-                                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" />
-                                    </svg>
-                                    Preview
-                                </button>
+                              
                                 <button type="button" class="delete-button" data-modal-target="delete-modal" data-id="${product._id}" onclick="deleteProduct('${product._id}')"
 
                                     data-modal-toggle="delete-modal">
@@ -190,7 +179,7 @@ fetchCategories();
 document.getElementById("addProductForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     if (!token) {
         alert("User not authenticated!");
         return;
@@ -200,6 +189,7 @@ document.getElementById("addProductForm").addEventListener("submit", function (e
     formData.append("name", document.getElementById("productName").value);
     formData.append("description", document.getElementById("productDescription").value);
     formData.append("price", document.getElementById("productPrice").value);
+    formData.append("discount", document.getElementById("productDiscount").value);
     formData.append("quantity", document.getElementById("productQuantity").value);
     formData.append("category", document.getElementById("productCategory").value);
     formData.append("isFeatured", document.getElementById("isFeatured").checked);
@@ -291,7 +281,7 @@ async function updateProduct(productId) {
 document.getElementById("updateProductForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     if (!token) {
         alert("User not authenticated!");
         return;
@@ -331,7 +321,7 @@ function deleteProduct(productId) {
     const confirmation = confirm("Are you sure you want to delete this product?");
     if (!confirmation) return;
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     if (!token) {
         alert("User not authenticated!");
         return;
@@ -353,3 +343,48 @@ function deleteProduct(productId) {
             alert("Error deleting product. Please try again.");
         });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <button type="button" class="preview-button" data-id="${product._id}"
+// data-drawer-target="drawer-read-product-advanced"
+// data-drawer-show="drawer-read-product-advanced"
+// aria-controls="drawer-read-product-advanced">
+// <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor"
+//     class="w-4 h-4 mr-2 -ml-0.5">
+//     <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+//     <path fill-rule="evenodd" clip-rule="evenodd"
+//         d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" />
+// </svg>
+// Preview
+// </button>

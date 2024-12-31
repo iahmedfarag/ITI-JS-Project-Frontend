@@ -13,7 +13,7 @@ function closeModalCategory() {
 
 
 const form = document.getElementById('addCategoryForm');
-const token = localStorage.getItem('token');
+const token = localStorage.getItem('authToken');
 
 if (!token) {
     alert('User not authenticated!');
